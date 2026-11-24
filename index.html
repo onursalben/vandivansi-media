@@ -3,9 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Vandivansi Media: İstanbul'da kafe, restoran ve işletmeler için sosyal medya yönetimi, animasyon reklam, web sitesi ve mobil uygulama.">
+<meta name="description" content="Kafe, restoran ve yerel iÅŸletmeler iÃ§in sosyal medya yÃ¶netimi. Instagram, TikTok, YouTube ve Facebook paketleri, animasyon reklam, web sitesi ve QR menÃ¼. Esenyurt, Ä°stanbul.">
+<link rel="canonical" href="https://onursalben.github.io/vandivansi-media/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230E1E3A%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2222%22%20fill%3D%22none%22%20stroke%3D%22%23C8A25A%22%20stroke-width%3D%223%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2228%22%20fill%3D%22%23C8A25A%22%3EV%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#0E1E3A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="Vandivansi Media">
+<meta property="og:title" content="Vandivansi Media Â· Ä°stanbul sosyal medya yÃ¶netimi">
+<meta property="og:description" content="Kafe, restoran ve yerel iÅŸletmeler iÃ§in sosyal medya yÃ¶netimi. Instagram, TikTok, YouTube ve Facebook paketleri, animasyon reklam, web sitesi ve QR menÃ¼. Esenyurt, Ä°stanbul.">
+<meta property="og:url" content="https://onursalben.github.io/vandivansi-media/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vandivansi Media",
+  "url": "https://onursalben.github.io/vandivansi-media/",
+  "description": "Kafe, restoran ve yerel iÅŸletmeler iÃ§in sosyal medya yÃ¶netimi. Instagram, TikTok, YouTube ve Facebook paketleri, animasyon reklam, web sitesi ve QR menÃ¼. Esenyurt, Ä°stanbul.",
+  "email": "vandivansimedia@gmail.com",
+  "areaServed": ["Ä°stanbul", "TÃ¼rkiye"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Esenyurt", "addressRegion": "Ä°stanbul", "addressCountry": "TR" },
+  "founder": { "@type": "Person", "name": "Onur DaÄŸaÃ§an" },
+  "sameAs": ["https://www.instagram.com/vandivansi/"],
+  "knowsAbout": ["Sosyal medya yÃ¶netimi", "Instagram", "TikTok", "YouTube", "Facebook", "Animasyon reklam", "Web sitesi", "QR menÃ¼"]
+}
+</script>
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Vandivansi Media</title>
+<title>Vandivansi Media Â· Ä°stanbul sosyal medya yÃ¶netimi</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +65,7 @@ button { font: inherit; cursor: pointer; }
 .draft { background: var(--gold-soft); color: var(--navy); font-size: 13px; text-align: center; padding-block: 6px; }
 
 .hero { background: var(--navy); color: var(--paper); margin-top: calc(-1 * env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .mark { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 500; color: var(--gold); font-size: 18px; }
 .word { display: flex; flex-direction: column; line-height: 1.1; }
@@ -105,6 +130,37 @@ h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
 .proof-note { margin-top: 18px; font-size: 14px; color: #C9CFDA; border-top: 1px solid rgba(247,245,240,0.12); padding-top: 14px; }
 
 section { padding-block: 96px; }
+.faq-grid, .quote-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.faq { display: grid; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 32px 20px 0; position: relative; font-size: 17px; font-weight: 500; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; position: absolute; right: 4px; top: 26px; width: 8px; height: 8px; border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); transform: rotate(45deg); transition: transform 160ms var(--ease); }
+.faq details[open] summary::after { transform: rotate(-135deg); top: 30px; }
+.faq details p { padding: 0 32px 20px 0; color: var(--ink); max-width: 60ch; }
+.quote-points { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+.quote-points li { display: flex; gap: 10px; align-items: center; }
+.quote-points li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.qform { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 16px; }
+.qform label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; }
+.qform input, .qform select, .qform textarea { font: inherit; font-size: 15px; font-weight: 400; color: var(--navy); background: var(--white); border: 1px solid #D9D4C8; border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
+.qform textarea { resize: vertical; }
+.qform input:focus, .qform select:focus, .qform textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+.qform input[aria-invalid="true"] { border-color: #C2413A; }
+.row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
+.qerr { color: #B3332C; font-size: 14px; }
+.qdone { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 14px; color: var(--ink); }
+.qdone pre { white-space: pre-wrap; font-family: var(--body); font-size: 13px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin: 0; color: var(--navy); }
+.btn-ghost-dark { border: 1px solid #D9D4C8; color: var(--navy); background: var(--white); justify-self: start; cursor: pointer; }
+.menu-btn { display: none; background: transparent; border: 1px solid rgba(247,245,240,0.3); color: var(--paper); border-radius: 10px; padding: 8px 14px; font-size: 14px; cursor: pointer; }
+@media (max-width: 820px) {
+  .faq-grid, .quote-grid, .row2 { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .menu-btn { display: inline-flex; }
+  .links.open { position: absolute; left: 0; right: 0; top: 72px; z-index: 20; background: var(--navy); flex-direction: column; align-items: stretch; gap: 0; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid rgba(247,245,240,0.12); }
+  .links.open a { display: block !important; padding: 12px 0; border-bottom: 1px solid rgba(247,245,240,0.08); opacity: 1; }
+  .links.open a.btn { margin-top: 12px; text-align: center; justify-content: center; border-bottom: 0; }
+}
 .sec-head h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
 section.alt { background: var(--white); border-block: 1px solid var(--line); }
 section.alt .card { background: var(--paper); }
@@ -280,14 +336,15 @@ footer { background: var(--navy); color: #C9CFDA; }
         <span class="mark">V</span>
         <span class="word"><b>VANDİVANSİ</b><small>MEDIA</small></span>
       </a>
-      <div class="links">
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menü</button>
+      <div class="links" id="navLinks">
         <a href="#paketler">Paketler</a>
         <a href="#animasyon">Animasyon</a>
         <a href="#strateji">Strateji</a>
         <a href="#ozel">Web ve uygulama</a>
         <a href="#nasil">Nasıl çalışır</a>
         <a href="#ben-kimim">Ben kimim</a>
-        <a class="btn btn-gold" href="#iletisim">Teklif al</a>
+        <a class="btn btn-gold" href="#teklif">Teklif al</a>
       </div>
     </nav>
 
@@ -298,7 +355,7 @@ footer { background: var(--navy); color: #C9CFDA; }
         <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı yöntemle Esenyurt'tan tüm İstanbul'a kafe, restoran ve yerel işletmelerin Instagram, TikTok, YouTube ve Facebook hesaplarını yönetiyoruz.</p>
         <div class="cta-row">
           <a class="btn btn-gold" href="#paketler">Paketleri gör</a>
-          <a class="btn btn-ghost" href="#iletisim">Ücretsiz ön görüşme</a>
+          <a class="btn btn-ghost" href="#teklif">Ücretsiz ön görüşme</a>
         </div>
         <p class="proofline"><a class="handle iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi <span class="tick" aria-label="Onaylı hesap"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 5.2 4.2 7.2 8 3"/></svg></span><svg class="ext" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9"/></svg></a><span><b>45,1 B</b> takipçi</span><span>Ekibimizin kendi hesabı</span></p>
       </div>
@@ -425,7 +482,7 @@ footer { background: var(--navy); color: #C9CFDA; }
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Google'da görünürlük ayarları, harita ve WhatsApp butonu</span></li>
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Alan adı ve barındırma kurulumunda destek</span></li>
           </ul>
-          <a class="btn btn-navy" href="#iletisim">Fiyat al</a>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
         </article>
         <article class="card pop">
           <div class="card-top"><span class="badge">Fiyat teklifi</span><span class="step">Android ve iPhone</span></div>
@@ -436,7 +493,7 @@ footer { background: var(--navy); color: #C9CFDA; }
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Google Play ve App Store'a yükleme desteği</span></li>
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>İsteğe bağlı aylık bakım ve güncelleme</span></li>
           </ul>
-          <a class="btn btn-navy" href="#iletisim">Fiyat al</a>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
         </article>
         <article class="card">
           <div class="card-top"><span class="badge">Fiyat teklifi</span><span class="step">Lokanta ve kafe</span></div>
@@ -446,7 +503,7 @@ footer { background: var(--navy); color: #C9CFDA; }
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Masalar için basılmaya hazır QR kod tasarımı</span></li>
             <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Fiyat ve ürün güncellemesi</span></li>
           </ul>
-          <a class="btn btn-navy" href="#iletisim">Fiyat al</a>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
         </article>
       </div>
     </div>
@@ -481,6 +538,26 @@ footer { background: var(--navy); color: #C9CFDA; }
       </div>
     </div>
   </div>
+  <section id="sss">
+    <div class="wrap faq-grid">
+      <div class="sec-head">
+        <p class="kicker">Sık sorulanlar</p>
+        <h2>Aklına takılanlar</h2>
+        <p>Burada cevabını bulamadığın bir şey varsa teklif formundan yaz, aynı gün dönüyoruz.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Sözleşme ya da uzun süreli taahhüt var mı?</summary><p>Zorunlu değil, aylık çalışıyoruz. İstersen 3, 6 veya 12 aylık taahhüt verip %10, %15 ya da %20 indirim alabilirsin.</p></details>
+        <details><summary>Instagram şifremi istiyor musunuz?</summary><p>Hayır. Meta Business Suite'te bizi "iş ortağı" olarak eklemen yeterli. Şifren sende kalır, istediğin an erişimi kapatabilirsin.</p></details>
+        <details><summary>İçerikler onayım olmadan paylaşılıyor mu?</summary><p>Hayır. Her ay başında içerik takvimini onayına gönderiyoruz. Her tasarımda 2 düzeltme hakkın var. 48 saat içinde dönüş olmazsa takvim onaylanmış sayılır.</p></details>
+        <details><summary>Çekime gelebiliyor musunuz?</summary><p>İstanbul içinde evet. Esenyurt, Beylikdüzü, Avcılar ve Büyükçekmece'de yol ücreti yok. Avrupa yakasının diğer ilçelerinde +500 ₺, Anadolu yakasında +1.000 ₺ eklenir. Çekimsiz paketler tüm Türkiye'de geçerli.</p></details>
+        <details><summary>Reklam bütçesi paketin içinde mi?</summary><p>Hayır. Reklam bütçesini kendi kartınla doğrudan Instagram'a (Meta) ödersin, para bizim üzerimizden geçmez. Biz reklamı kurar, yönetir ve raporlarız.</p></details>
+        <details><summary>Ödeme nasıl yapılıyor?</summary><p>Her ayın başında peşin. Ay ortasında başlarsan ilk ay gün hesabıyla ücretlendirilir.</p></details>
+        <details><summary>Paketimi değiştirebilir ya da bırakabilir miyim?</summary><p>Üst pakete her ay geçebilirsin. Alt pakete geçiş ya da bırakma bir sonraki ayın başından itibaren geçerli olur.</p></details>
+        <details><summary>Sonuçları nasıl göreceğim?</summary><p>Her ay sonunda kısa bir rapor gönderiyoruz: erişim, yeni takipçi, en iyi gönderi ve en iyi paylaşım saati. Bir sonraki ay ne yapacağımızı da bu rakamlara göre planlıyoruz.</p></details>
+      </div>
+    </div>
+  </section>
+
   <section id="ben-kimim">
     <div class="wrap about">
       <aside class="about-card" aria-label="Kısaca">
@@ -534,6 +611,47 @@ footer { background: var(--navy); color: #C9CFDA; }
     </div>
   </section>
 
+  <section id="teklif" class="alt">
+    <div class="wrap quote-grid">
+      <div class="sec-head">
+        <p class="kicker">Teklif al</p>
+        <h2>İşletmeni anlat, aynı gün dönelim</h2>
+        <p>Formu doldur, "Gönder"e bas. E-posta uygulaman bilgilerin hazır yazılmış şekilde açılır, sadece göndermen yeterli. İlk görüşme ücretsiz ve 20 dakika.</p>
+        <ul class="quote-points">
+          <li>Ücretsiz mini hesap analizi</li>
+          <li>İlk 3 müşteriye %30 indirim</li>
+          <li>Taahhüt zorunlu değil</li>
+        </ul>
+      </div>
+      <form class="qform" id="qform" novalidate>
+        <div class="row2">
+          <label for="q-name">Adın soyadın<input id="q-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="q-biz">İşletmenin adı<input id="q-biz" name="biz" type="text" autocomplete="organization" required></label>
+        </div>
+        <div class="row2">
+          <label for="q-type">İşletme türü
+            <select id="q-type" name="type">
+              <option>Kafe veya restoran</option><option>Kuaför, berber veya güzellik</option><option>Butik veya mağaza</option><option>Emlak veya oto galeri</option><option>Klinik veya sağlık</option><option>Diğer</option>
+            </select>
+          </label>
+          <label for="q-area">İlçe veya şehir<input id="q-area" name="area" type="text" placeholder="Esenyurt"></label>
+        </div>
+        <div class="row2">
+          <label for="q-ig">Instagram hesabın<input id="q-ig" name="ig" type="text" placeholder="@isletmen"></label>
+          <label for="q-phone">Telefon (isteğe bağlı)<input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+        </div>
+        <label for="q-pkg">İlgilendiğin paket veya hizmet<input id="q-pkg" name="pkg" type="text" placeholder="Instagram Güç"></label>
+        <label for="q-msg">Eklemek istediğin bir şey<textarea id="q-msg" name="msg" rows="3" placeholder="Örneğin: Yeni açıldık, hafta sonu daha çok müşteri istiyoruz"></textarea></label>
+        <p class="qerr" id="qerr" hidden>Adını ve işletmenin adını yazar mısın?</p>
+        <button type="submit" class="btn btn-navy">Gönder</button>
+        <div class="qdone" id="qdone" hidden>
+          <p>E-posta uygulaman açılmadıysa aşağıdaki metni kopyalayıp <b>vandivansimedia@gmail.com</b> adresine ya da Instagram'dan <b>@vandivansi</b>'ye gönderebilirsin.</p>
+          <pre id="qtext"></pre>
+          <button type="button" class="btn btn-ghost-dark" id="qcopy">Metni kopyala</button>
+        </div>
+      </form>
+    </div>
+  </section>
 </main>
 
 <footer id="iletisim">
@@ -626,7 +744,7 @@ function cardsHTML(prefix, items, unit) {
       <p class="price">${fmt(price)} <small>${unit}</small></p>
       <ul class="feat">${feats.map(f => `<li>${check}<span>${f}</span></li>`).join("")}</ul>
       ${d}
-      <a class="btn btn-navy" href="#iletisim">Bu paketi seç</a>
+      <a class="btn btn-navy" href="#teklif">Bu paketi seç</a>
     </article>`;
   }).join("");
 }
@@ -649,6 +767,64 @@ function switcher(tabsId, ladderId, data, start, key, prefixOf, unitOf) {
 switcher("tabs", "ladder", P, "instagram", "vm-platform", g => g.name, () => "/ay");
 switcher("animTabs", "animLadder", A, "tek", "vm-anim", g => g.label, g => g.unit || "tek sefer");
 document.getElementById("stratLadder").innerHTML = cardsHTML("", S.items, "tek sefer");
+
+(function nav() {
+  const btn = document.getElementById("menuBtn"), links = document.getElementById("navLinks");
+  btn.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Kapat" : "Menü";
+  });
+  links.addEventListener("click", e => {
+    if (e.target.closest("a")) { links.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.textContent = "Menü"; }
+  });
+})();
+
+(function quote() {
+  const form = document.getElementById("qform"), pkg = document.getElementById("q-pkg");
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href="#teklif"]');
+    if (!a) return;
+    const card = a.closest(".card");
+    const title = card && card.querySelector("h3");
+    if (title) pkg.value = title.textContent.trim();
+  });
+  const err = document.getElementById("qerr"), done = document.getElementById("qdone"), txt = document.getElementById("qtext");
+  ["q-name", "q-biz"].forEach(id => document.getElementById(id).addEventListener("input", e => { e.target.removeAttribute("aria-invalid"); err.hidden = true; }));
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = Object.fromEntries(new FormData(form).entries());
+    const missing = ["name", "biz"].filter(k => !String(f[k] || "").trim());
+    if (missing.length) {
+      missing.forEach(k => document.querySelector(`[name="${k}"]`).setAttribute("aria-invalid", "true"));
+      err.hidden = false;
+      document.querySelector(`[name="${missing[0]}"]`).focus();
+      return;
+    }
+    const lines = [
+      "Merhaba, Vandivansi Media'dan teklif almak istiyorum.",
+      "",
+      "Ad soyad: " + f.name,
+      "İşletme: " + f.biz + " (" + f.type + ")",
+      f.area ? "Yer: " + f.area : "",
+      f.ig ? "Instagram: " + f.ig : "",
+      f.phone ? "Telefon: " + f.phone : "",
+      f.pkg ? "İlgilendiğim paket: " + f.pkg : "",
+      f.msg ? "Not: " + f.msg : ""
+    ].filter((l, i) => l !== "" || i === 1);
+    const body = lines.join("\n");
+    txt.textContent = body;
+    done.hidden = false;
+    const subject = "Teklif talebi: " + f.biz;
+    window.location.href = "mailto:vandivansimedia@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  });
+  document.getElementById("qcopy").addEventListener("click", e => {
+    const b = e.currentTarget;
+    try {
+      navigator.clipboard.writeText(txt.textContent).then(() => { b.textContent = "Kopyalandı"; }).catch(() => { b.textContent = "Metni seçip kopyala"; });
+    } catch (_) { b.textContent = "Metni seçip kopyala"; }
+  });
+})();
 
 (function intro() {
   const segs = [
