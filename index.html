@@ -150,6 +150,9 @@ section { padding-block: 96px; }
 .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
 .qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
 .qerr { color: #B3332C; font-size: 14px; }
+.qok { background: #E3F1EA; border: 1px solid #C6E2D3; border-radius: 12px; padding: 16px; display: grid; gap: 4px; color: #1F4D38; outline: none; }
+.qok-title { font-family: var(--serif); font-size: 24px; color: #1F4D38; }
+.qform button[disabled] { opacity: 0.6; cursor: progress; }
 .qdone { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 14px; color: var(--ink); }
 .qdone pre { white-space: pre-wrap; font-family: var(--body); font-size: 13px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin: 0; color: var(--navy); }
 .btn-ghost-dark { border: 1px solid #D9D4C8; color: var(--navy); background: var(--white); justify-self: start; cursor: pointer; }
@@ -616,7 +619,7 @@ footer { background: var(--navy); color: #C9CFDA; }
       <div class="sec-head">
         <p class="kicker">Teklif al</p>
         <h2>İşletmeni anlat, aynı gün dönelim</h2>
-        <p>Formu doldur, "Gönder"e bas. E-posta uygulaman bilgilerin hazır yazılmış şekilde açılır, sadece göndermen yeterli. İlk görüşme ücretsiz ve 20 dakika.</p>
+        <p>Formu doldur, "Gönder"e bas. Mesajın doğrudan bize ulaşır, aynı gün dönüyoruz. İlk görüşme ücretsiz ve 20 dakika.</p>
         <ul class="quote-points">
           <li>Ücretsiz mini hesap analizi</li>
           <li>İlk 3 müşteriye %30 indirim</li>
@@ -644,8 +647,12 @@ footer { background: var(--navy); color: #C9CFDA; }
         <label for="q-msg">Eklemek istediğin bir şey<textarea id="q-msg" name="msg" rows="3" placeholder="Örneğin: Yeni açıldık, hafta sonu daha çok müşteri istiyoruz"></textarea></label>
         <p class="qerr" id="qerr" hidden>Adını ve işletmenin adını yazar mısın?</p>
         <button type="submit" class="btn btn-navy">Gönder</button>
+        <div class="qok" id="qok" tabindex="-1" hidden>
+          <p class="qok-title">Mesajın ulaştı</p>
+          <p>Teşekkürler. Aynı gün içinde sana dönüyoruz. Acelen varsa Instagram'dan <b>@vandivansi</b>'ye de yazabilirsin.</p>
+        </div>
         <div class="qdone" id="qdone" hidden>
-          <p>E-posta uygulaman açılmadıysa aşağıdaki metni kopyalayıp <b>vandivansimedia@gmail.com</b> adresine ya da Instagram'dan <b>@vandivansi</b>'ye gönderebilirsin.</p>
+          <p>Mesaj şu an gönderilemedi. Aşağıdaki metni kopyalayıp <b>onurdagacan@outlook.com</b> adresine ya da Instagram'dan <b>@vandivansi</b>'ye gönderebilirsin.</p>
           <pre id="qtext"></pre>
           <button type="button" class="btn btn-ghost-dark" id="qcopy">Metni kopyala</button>
         </div>
@@ -781,7 +788,8 @@ document.getElementById("stratLadder").innerHTML = cardsHTML("", S.items, "tek s
 })();
 
 (function quote() {
-  const form = document.getElementById("qform"), pkg = document.getElementById("q-pkg");
+  const FORM_TO = "onurdagacan@outlook.com";
+  const form = document.getElementById("qform"), pkg = document.getElementById("q-pkg"), ok = document.getElementById("qok");
   document.addEventListener("click", e => {
     const a = e.target.closest('a[href="#teklif"]');
     if (!a) return;
@@ -813,10 +821,30 @@ document.getElementById("stratLadder").innerHTML = cardsHTML("", S.items, "tek s
       f.msg ? "Not: " + f.msg : ""
     ].filter((l, i) => l !== "" || i === 1);
     const body = lines.join("\n");
-    txt.textContent = body;
-    done.hidden = false;
     const subject = "Teklif talebi: " + f.biz;
-    window.location.href = "mailto:vandivansimedia@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    txt.textContent = body;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true; submitBtn.textContent = "Gönderiliyor";
+    const payload = {
+      _subject: subject, _template: "table", _captcha: "false",
+      "Ad soyad": f.name, "İşletme": f.biz, "İşletme türü": f.type, "Yer": f.area || "-",
+      "Instagram": f.ig || "-", "Telefon": f.phone || "-", "Paket": f.pkg || "-", "Not": f.msg || "-"
+    };
+    fetch("https://formsubmit.co/ajax/" + FORM_TO, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(r => r.json()).then(res => {
+      if (String(res.success) === "true") {
+        form.reset(); submitBtn.hidden = true;
+        ok.hidden = false; done.hidden = true;
+        ok.focus();
+      } else { throw new Error(res.message || "gönderilemedi"); }
+    }).catch(() => {
+      submitBtn.disabled = false; submitBtn.textContent = "Tekrar dene";
+      done.hidden = false;
+      window.location.href = "mailto:" + FORM_TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
   });
   document.getElementById("qcopy").addEventListener("click", e => {
     const b = e.currentTarget;
