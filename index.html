@@ -29,7 +29,7 @@
 * { box-sizing: border-box; }
 body { background: var(--paper); color: var(--navy); font-family: var(--body); font-size: 16px; line-height: 1.6; }
 .wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
 p { margin: 0; }
 a { color: inherit; }
 button { font: inherit; cursor: pointer; }
@@ -52,7 +52,7 @@ button { font: inherit; cursor: pointer; }
 .btn-navy { background: var(--navy); color: var(--paper); width: 100%; justify-content: center; }
 
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 48px 72px; }
-.eyebrow { font-size: 12px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+.eyebrow { font-size: 14px; letter-spacing: 0.01em; color: var(--gold); margin-bottom: 16px; }
 .hero h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.1; color: var(--paper); }
 .hero h1 em { font-style: normal; color: var(--gold); }
 .lead { margin-top: 20px; font-size: 18px; color: #C9CFDA; max-width: 34em; }
@@ -77,22 +77,22 @@ section.alt .diff { background: var(--white); }
 .sec-head { max-width: 640px; margin-bottom: 32px; }
 .sec-head h2 { font-size: clamp(26px, 3.4vw, 36px); }
 .sec-head p { margin-top: 10px; color: var(--ink); }
-.kicker { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #9A7A3A; margin-bottom: 10px; font-weight: 600; }
+.kicker { font-size: 14px; letter-spacing: 0.01em; color: #8A6A2E; margin-bottom: 8px; font-weight: 500; }
 
 .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-.tab { border: 1.5px solid var(--line); background: var(--white); color: var(--navy); border-radius: 999px; padding: 10px 18px; font-weight: 500; font-size: 15px; display: inline-flex; gap: 8px; align-items: center; }
+.tab { border: 1.5px solid var(--line); background: var(--white); color: var(--navy); border-radius: 999px; padding: 8px 16px; font-weight: 500; font-size: 15px; display: inline-flex; gap: 8px; align-items: center; }
 .tab[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--paper); }
 .tab .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
 
 .ladder { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
-.card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
 .card.pop { border: 2px solid var(--gold); }
 .card-top { display: flex; justify-content: space-between; align-items: center; min-height: 26px; gap: 8px; }
 .badge { font-size: 12px; background: var(--gold-soft); color: var(--navy); padding: 3px 10px; border-radius: 6px; font-weight: 500; }
 .badge.shoot { background: #E4E9F2; }
 .step { font-size: 12px; color: var(--ink); }
 .card h3 { font-size: 22px; }
-.price { font-family: var(--display); font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.price { font-family: var(--display); font-size: 32px; font-weight: 500; font-variant-numeric: tabular-nums; }
 .price small { font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink); }
 .feat { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14px; color: var(--ink); flex: 1; }
 .feat li { display: flex; gap: 8px; align-items: flex-start; }
@@ -101,19 +101,19 @@ section.alt .diff { background: var(--white); }
 .diff b { color: var(--green); }
 
 .combos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
-.combo { background: var(--navy); color: var(--paper); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.combo { background: var(--navy); color: var(--paper); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
 .combo h3 { font-size: 19px; color: var(--paper); }
 .combo .inc { font-size: 13px; color: #C9CFDA; flex: 1; }
 .combo .was { font-size: 14px; color: #AEB6C5; text-decoration: line-through; }
-.combo .now { font-family: var(--display); font-size: 26px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+.combo .now { font-family: var(--display); font-size: 28px; font-weight: 500; color: var(--gold); font-variant-numeric: tabular-nums; }
 .save { font-size: 12px; background: rgba(46,139,98,0.18); color: #8FD9B6; border-radius: 6px; padding: 3px 8px; align-self: flex-start; }
 .mix { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--ink); }
 .mix span { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; }
 .mix b { color: var(--navy); }
 
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; counter-reset: s; }
-.steps li { list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
-.steps li::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--gold); color: #9A7A3A; font-family: var(--display); font-weight: 600; margin-bottom: 14px; }
+.steps li { list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.steps li::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--gold); color: #9A7A3A; font-family: var(--display); font-weight: 500; margin-bottom: 16px; }
 .steps h3 { font-size: 17px; margin-bottom: 6px; }
 .steps p { font-size: 14px; color: var(--ink); }
 .steps ol { padding: 0; margin: 0; }
@@ -123,7 +123,7 @@ section.alt .diff { background: var(--white); }
 .band h2 { font-size: clamp(24px, 3vw, 32px); }
 .band p { margin-top: 10px; color: var(--ink); }
 .promo { display: grid; gap: 10px; }
-.promo div { background: var(--white); border-radius: 10px; padding: 14px 16px; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
+.promo div { background: var(--white); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
 .promo b { font-family: var(--display); font-variant-numeric: tabular-nums; }
 
 footer { background: var(--navy); color: #C9CFDA; }
@@ -133,24 +133,24 @@ footer { background: var(--navy); color: #C9CFDA; }
 
 .about { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: 48px; align-items: start; }
 .about-card { background: var(--navy); color: var(--paper); border-radius: 18px; padding: 28px; display: grid; gap: 24px; border: 1px solid rgba(200,162,90,0.45); }
-.about-mark { display: flex; gap: 14px; align-items: center; }
-.about-name { font-family: var(--display); font-weight: 600; font-size: 20px; color: var(--paper); }
+.about-mark { display: flex; gap: 16px; align-items: center; }
+.about-name { font-family: var(--display); font-weight: 500; font-size: 20px; color: var(--paper); }
 .about-role { font-size: 13px; color: var(--gold); }
 .about-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .about-stats div { background: rgba(247,245,240,0.06); border-radius: 12px; padding: 14px; }
 .about-stats b { display: block; font-family: var(--display); font-size: 24px; color: var(--gold); font-variant-numeric: tabular-nums; }
 .about-stats span { font-size: 12px; color: #C9CFDA; }
-.about-text { display: grid; gap: 14px; max-width: 640px; }
+.about-text { display: grid; gap: 16px; max-width: 640px; }
 .about-text h2 { font-size: clamp(26px, 3.4vw, 36px); }
 .about-text > p { color: var(--ink); }
 .skills { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.skills li { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 4px; }
+.skills li { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 4px; }
 .skills b { font-family: var(--display); font-size: 15px; }
 .skills span { font-size: 13px; color: var(--ink); }
 .sign { font-family: var(--display); color: #9A7A3A; font-weight: 500; }
 .lead-dark { font-size: 19px; line-height: 1.55; color: var(--navy) !important; font-weight: 500; }
 .about-h3 { font-size: 18px; margin-top: 18px; }
-.journey { list-style: none; padding: 0 0 0 18px; margin: 0; display: grid; gap: 14px; border-left: 2px solid var(--gold); }
+.journey { list-style: none; padding: 0 0 0 20px; margin: 0; display: grid; gap: 16px; border-left: 2px solid var(--gold); }
 .journey li { position: relative; display: grid; gap: 2px; }
 .journey li::before { content: ""; position: absolute; left: -25px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--gold); }
 .journey li:last-child::before { background: var(--gold); }
@@ -160,7 +160,7 @@ footer { background: var(--navy); color: #C9CFDA; }
 .principles li { border-top: 2px solid var(--gold); padding-top: 10px; display: grid; gap: 4px; }
 .principles b { font-family: var(--display); font-size: 16px; }
 .principles span { font-size: 13px; color: var(--ink); }
-.about-quote { margin: 10px 0 0; padding: 20px 22px; background: var(--navy); color: var(--paper); border-radius: 14px; font-family: var(--display); font-size: 18px; line-height: 1.5; }
+.about-quote { margin: 8px 0 0; padding: 20px 24px; background: var(--navy); color: var(--paper); border-radius: 14px; font-family: var(--display); font-size: 18px; line-height: 1.5; }
 @media (max-width: 820px) { .principles { grid-template-columns: minmax(0, 1fr); } }
 .about-card { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); }
 @media (max-width: 820px) { .about-card { position: static; } }
@@ -179,7 +179,7 @@ footer { background: var(--navy); color: #C9CFDA; }
 .scenes { position: absolute; left: 6%; right: 6%; top: 4%; height: 40%; }
 .sc { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; text-align: center; }
 .sc.on { opacity: 1; transform: none; }
-.big { font-family: var(--display); font-weight: 600; font-size: clamp(36px, 7vw, 56px); color: var(--paper); line-height: 1; }
+.big { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 7vw, 56px); color: var(--paper); line-height: 1; }
 .num { color: var(--gold); font-variant-numeric: tabular-nums; }
 .sub { font-size: 15px; color: #C9CFDA; display: flex; align-items: center; gap: 6px; }
 .chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
@@ -206,14 +206,10 @@ footer { background: var(--navy); color: #C9CFDA; }
 .playbtn { position: absolute; right: 14px; bottom: 74px; display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 600; font-size: 14px; }
 .stage.playing .playbtn { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
-  .stage.playing .char { animation: bob 2.4s ease-in-out infinite; }
   .sc.on .chip { animation: pop 0.45s both; }
   .sc.on .chip:nth-child(2) { animation-delay: 0.25s; } .sc.on .chip:nth-child(3) { animation-delay: 0.5s; } .sc.on .chip:nth-child(4) { animation-delay: 0.75s; }
   .sc.on .bar { animation: grow 0.8s both; transform-box: fill-box; transform-origin: 50% 100%; }
   .sc.on .bar:nth-child(2) { animation-delay: 0.2s; } .sc.on .bar:nth-child(3) { animation-delay: 0.4s; }
-  .sc.on .road { animation: dash 1.6s linear infinite; }
-  .sc.on .pulse { animation: pulse 1.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 50%; }
-  .sc.on .cta { animation: pulse 1s ease-in-out infinite; }
   .wave #arm { animation: wave 0.6s ease-in-out infinite alternate; }
 }
 .wave #arm { opacity: 1; }
@@ -231,7 +227,7 @@ footer { background: var(--navy); color: #C9CFDA; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .card, .tab { transition: transform 0.15s ease, border-color 0.15s ease; }
-  .card:hover { transform: translateY(-2px); }
+  .card:hover { border-color: #D3CDBF; }
 }
 </style>
 
@@ -259,7 +255,7 @@ footer { background: var(--navy); color: #C9CFDA; }
     <div class="hero-grid">
       <div>
         <p class="eyebrow">Sosyal medya yönetimi · İstanbul ve tüm Türkiye</p>
-        <h1>Biz denedik, <em>işe yarıyor.</em></h1>
+        <h1>Biz denedik, <em>işe yarıyor</em></h1>
         <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı ekip, aynı yöntemle şimdi senin işletmenin Instagram, Facebook, YouTube ve TikTok hesaplarını yönetiyor.</p>
         <div class="cta-row">
           <a class="btn btn-gold" href="#paketler">Paketleri gör</a>
@@ -271,7 +267,7 @@ footer { background: var(--navy); color: #C9CFDA; }
       <div class="stage" id="stage" aria-label="Vandivansi Media tanıtım animasyonu">
         <audio id="vo" src="tanitim.mp3" preload="auto"></audio>
         <div class="scenes">
-          <div class="sc" data-i="0"><p class="big">Selam!</p><p class="sub">Ben Vandivansi</p></div>
+          <div class="sc" data-i="0"><p class="big">Selam</p><p class="sub">Ben Vandivansi</p></div>
           <div class="sc" data-i="1"><p class="big num"><span id="cnt">0</span></p><p class="sub">takipçi <span class="tick"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 5.2 4.2 7.2 8 3"/></svg></span></p></div>
           <div class="sc" data-i="2"><div class="chips"><span class="chip"><i style="background:#D6297B"></i>Instagram</span><span class="chip"><i style="background:#1877F2"></i>Facebook</span><span class="chip"><i style="background:#25F4EE"></i>TikTok</span><span class="chip"><i style="background:#FF0000"></i>YouTube</span></div></div>
           <div class="sc" data-i="3">
@@ -458,7 +454,7 @@ footer { background: var(--navy); color: #C9CFDA; }
       </aside>
       <div class="about-text">
         <p class="kicker">Ben kimim</p>
-        <h2>Merhaba, ben Onur. Vandivansi'nin arkasındaki isim.</h2>
+        <h2>Merhaba, ben Onur, Vandivansi'nin arkasındaki isim</h2>
         <p class="lead-dark">Sosyal medya benim için bir iş olmadan önce bir tutkuydu. Bugün o tutku, sekiz yılın sabrı, binlerce saatlik deneme yanılma ve yüzlerce içerikten süzülen bir ustalığa dönüştü.</p>
         <p>2018'den beri sosyal medyanın tam merkezindeyim. Bu yolculukta pek çok hesabı sıfırdan alıp büyüttüm. Platformlar kurallarını her değiştirdiğinde ben de oradaydım: yeni algoritmayı ilk günden izledim, test ettim, neyin işe yaradığını kendi hesaplarımda kanıtladım. Hangi içeriğin neden patladığını, hangisinin neden sessizce kaybolduğunu tahminle değil, verilerle okumayı öğrendim.</p>
         <p>Grafiklerin arkasındaki hikâyeyi görmek benim işim. Bir videonun ilk üç saniyesinde izleyicinin neden kaldığını ya da neden kaydırıp geçtiğini, bir gönderinin neden kaydedildiğini, bir hesabın neden bir anda keşfete düştüğünü sayılarla açıklayabilirim. Çünkü her platform farklı bir dil konuşur ve ben bu dillerin hepsini akıcı konuşuyorum.</p>
