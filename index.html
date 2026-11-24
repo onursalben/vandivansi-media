@@ -179,6 +179,10 @@ section { padding-block: 96px; }
 .idea .fmt { font-size: 12px; color: #8A6A2E; font-weight: 500; }
 .idea h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.15; }
 .idea .what { font-size: 14px; color: var(--ink); }
+.idea .hook { font-family: var(--serif); font-size: 21px; line-height: 1.25; color: var(--navy); border-left: 2px solid var(--gold); border-radius: 0; padding-left: 12px; }
+.idea .hook span, .idea .icap span { display: block; font-family: var(--body); font-size: 12px; color: #8A6A2E; font-weight: 500; margin-bottom: 4px; }
+.idea .why { font-size: 13px; color: var(--ink); }
+.idea .why b { color: var(--navy); font-weight: 500; }
 .idea .icap { font-size: 14px; background: var(--paper); border-radius: 10px; padding: 12px; white-space: pre-line; }
 .idea .when { font-size: 13px; color: var(--navy); display: flex; gap: 8px; align-items: center; }
 .idea .when::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
@@ -1114,43 +1118,44 @@ document.getElementById("combos").innerHTML = combos.map(([n, inc, was, now]) =>
 })();
 
 (function ideas() {
+  // [format, başlık, kanca (ilk 3 saniye), ne çekilir, açıklama yazısı, neden işe yarar, en iyi saat]
   const D = {
     kafe: { name: "Kafe", items: [
-      ["Reels · 10 sn", "Günün ilk fincanı", "Sabah açılışta hazırlanan ilk kahve: süt köpüğü, fincanın tezgâha konuşu, ses açık.", "Günün ilk fincanı hazır. Kapımız 08.00'de açık, en sevdiğin köşe seni bekliyor ☕", "Hafta içi 08.00–09.00"],
-      ["Gönderi", "Müdavim köşesi", "Düzenli gelen bir müşterinin favori içeceği ve kısa bir cümlesi (izniyle).", "Ayşe Hanım 2 yıldır her sabah aynı masada, hep orta şekerli Türk kahvesi. Senin favorin ne?", "Salı 19.00"],
-      ["Story anketi", "Hangisi?", "İki tatlının fotoğrafı yan yana, anket çıkartmasıyla.", "San Sebastian mı, tiramisu mu? Kazanan cuma günü %20 indirimli.", "Perşembe 20.00"]
+      ["Reels · 15 sn", "Baristayı şaşırt", "Baristaya 'beni şaşırt' dedim. Bakın ne yaptı.", "Ekipten biri müşteri gibi gelir, menüde olmayan bir şey ister. Barista anında yeni bir içecek yaratır, son sahnede bardağı kameraya uzatır.", "Baristamıza 'beni şaşırt' dedik, bu çıktı. Menüye eklensin mi? Yorumlarda 100 'evet' görürsek ekliyoruz.", "Yorumu bir göreve çeviriyor. Yorum sayısı arttıkça Instagram videoyu daha çok kişiye gösteriyor.", "Cuma 19.00"],
+      ["Reels + etkinlik", "Telefonunu bize bırak", "Telefonunu 1 saat bize bırak, kahven bizden.", "Müşteriler telefonlarını kasadaki kutuya bırakıyor, sohbet ediyor, kitap okuyor. 1 saat sonra kahveleri ücretsiz. Tepkiler çekiliyor.", "Cumartesi 14.00–17.00: telefonunu kasaya bırak, 1 saat dayan, kahven bizden. Kim cesur?", "Meydan okuma paylaşılır ve kaydedilir. Üstelik videoyu izleyenleri o gün kafeye getirir.", "Perşembe 20.00 duyuru"],
+      ["Story serisi", "Gizli menü", "Bu içecek menüde yok. Sadece şifreyi bilene.", "Her gün story'de yeni bir 'gizli' içecek ve kasada söylenecek bir şifre.", "Kasada 'kuytu' de, gizli menüden Fındıklı Bal Latte'yi hazırlayalım. Şifre sadece bugün geçerli.", "Merak ve 'sadece takipçilere özel' hissi story izlenmesini her gün artırır ve doğrudan satışa döner.", "Her gün 11.00"]
     ]},
     restoran: { name: "Restoran", items: [
-      ["Reels · 10 sn", "Ocaktan masaya", "Izgarada alev, tabağa servis ve masaya konuş. Hızlı kesimler, ses açık.", "Közün sesi, tabağın kokusu. Öğle menümüz 11.30'da hazır 🔥", "Hafta içi 11.00"],
-      ["Story şablonu", "Bugünün menüsü", "Her sabah aynı şablonda günün 3 yemeği ve fiyatı.", "Bugün: mercimek, fırın tavuk, sütlaç. Paket servis için DM ya da telefon.", "Her gün 10.30"],
-      ["Kaydırmalı gönderi", "Ustamızın tarifi", "Bir imza yemeğin 4 adımı, son karede 'bizde daha lezzetli' kapanışı.", "Ustamızın 20 yıllık tarifi, 4 adımda. Evde dene, ama asıl lezzeti bizde.", "Pazar 18.00"]
+      ["Reels · 20 sn", "Öğlen 12.00'de mutfak", "Siz 'acıktım' derken mutfağımızda 60 saniye.", "Öğle yoğunluğunun hızlandırılmış çekimi: tava sesi, fiş yazıcısı, tabakların peş peşe çıkışı.", "Siz 'acıktım' derken mutfakta bu oluyor. Paket servis 11.30'da başlıyor, sıraya ilk sen gir.", "Yoğunluk görmek güven verir: 'Bu kadar sipariş varsa lezzetlidir.' Öğle saatinden hemen önce paylaşılınca sipariş getirir.", "Hafta içi 11.15"],
+      ["Reels · 30 sn", "Ustanın itirafı", "Ustaya sordum: Lokantalar en çok hangi yemekte hile yapar?", "Usta kameraya sektörden bir bilgi verir, örneğin hazır sos ya da donuk et, ve kendi mutfaklarında neden yapmadıklarını gösterir.", "Ustamız 25 yıllık tecrübesiyle anlattı. Bizim mutfağımızda hazır sos yok, merak eden gelip baksın.", "Sektör sırrı merak uyandırır, kaydedilir ve paylaşılır. Aynı anda 'biz dürüstüz' mesajını verir.", "Pazar 20.00"],
+      ["Gönderi + story", "Komisyonu sana verelim", "Uygulamaya ödediğimiz komisyonu sana geri veriyoruz.", "WhatsApp'tan doğrudan sipariş verene ücretsiz tatlı. Görselde sipariş numarası ve tatlı.", "Bizden direkt sipariş ver, uygulama komisyonunu sana tatlı olarak verelim. WhatsApp'tan yazana sütlaç bizden.", "Müşteriyi yemek uygulamasından kendi kanalına taşır. İşletme her siparişte komisyondan kurtulur.", "Salı 18.00"]
     ]},
     kuafor: { name: "Kuaför", items: [
-      ["Reels", "Önce ve sonra", "Müşterinin izniyle 8 saniyelik dönüşüm videosu, trend sesle.", "3 saatlik emeğin 8 saniyelik hali. Randevu için profildeki linke dokun ✂️", "Cuma 19.30"],
-      ["Kaydırmalı gönderi", "Bu sezonun 3 rengi", "Üç saç rengi, her birine kime yakışır notu.", "Bu kış en çok istenen 3 renk. Sana hangisi yakışır, yorumlara yaz, söyleyelim.", "Çarşamba 18.00"],
-      ["Story", "Boş saat var", "O günün boşalan randevu saati, geri sayım çıkartmasıyla.", "Bugün 15.00'te bir yer açıldı. İlk yazan alır.", "Anlık"]
+      ["Reels · 15 sn", "Fotoğrafla geldi", "Pinterest'ten bir fotoğraf getirdi: 'Bunu yapabilir misiniz?'", "Müşterinin getirdiği örnek fotoğraf ekranın köşesinde dururken işlem hızlandırılmış oynar. Son sahnede ikisi yan yana (müşteri izniyle).", "Hayalindeki saçın fotoğrafını getir, aynısını yapalım. Randevu linki profilde.", "İzleyen kendi isteğini görür. 'Ben de bunu istiyorum' diye DM atar, video doğrudan randevuya döner.", "Cuma 19.30"],
+      ["Reels · skeç", "Kuaförüne asla söyleme", "Kuaförünüze asla söylememeniz gereken 3 cümle.", "Ekipten kısa, komik bir skeç: 'Sadece uçlarından alın', 'Geçen sefer başka yerde yaptırdım', 'Aynısı ama farklı olsun'.", "Hangisini söyledin? İtiraf et. Bunu hep söyleyen arkadaşını etiketle.", "Mizah ve etiketleme reklamsız yayılmanın en hızlı yolu. Her etiket yeni bir potansiyel müşteri.", "Çarşamba 20.00"],
+      ["Story", "Son dakika boşluğu", "15.00'teki randevu iptal oldu. İlk yazana %20 indirim.", "Boşalan saat geri sayım çıkartmasıyla paylaşılır.", "15.00 boşaldı. İlk yazana %20 indirim. Kaçırma.", "Boş koltuk kayıp para demek. Story ile dakikalar içinde dolar, takipçiler de story'leri kaçırmamaya başlar.", "Anlık"]
     ]},
     butik: { name: "Butik", items: [
-      ["Reels", "1 parça, 3 kombin", "Tek bir ceketle iş, hafta sonu ve akşam kombini.", "Bir ceket, üç hayat. Hangisi senin tarzın? 1, 2 ya da 3 yaz.", "Salı 20.00"],
-      ["Kaydırmalı gönderi", "Yeni gelenler", "Haftanın yeni ürünleri, fiyatı ve beden bilgisiyle.", "Yeni sezon raflarda. Beden ve stok için DM'den yaz, aynı gün kargoda.", "Perşembe 19.00"],
-      ["Story", "Sadece story'de", "24 saat geçerli indirim kodu.", "Bu kod sadece bugün geçerli: STORY10. Kasada göster ya da DM'den yaz.", "Cumartesi 11.00"]
+      ["Reels · 20 sn", "Aynı elbise, 3 yaş", "Aynı elbise, 3 farklı yaş. Hangisine daha çok yakıştı?", "20, 35 ve 50 yaşında üç kadın aynı elbiseyi kendi tarzında giyer.", "Tek elbise, üç stil. Yorumlara 1, 2 ya da 3 yaz. Beden ve stok için DM.", "Her izleyen kendini birinde görür. Yorumla oylama, Instagram'ın en sevdiği etkileşimdir.", "Salı 20.00"],
+      ["Reels · 15 sn", "1.000 ₺'ye tepeden tırnağa", "1.000 ₺'ye tepeden tırnağa giydirdik.", "Ceket, pantolon ve çanta tek tek eklenir, köşede toplam fiyat sayar.", "Ceket, pantolon, çanta: toplam 1.000 ₺'nin altında. Hangisini alırdın?", "Somut bütçe ve açık fiyat, satışa en yakın içeriktir. 'Bu bütçeye bunu bulabilirim' hissi verir.", "Perşembe 19.00"],
+      ["Story", "Son 3 adet", "Bu ceketten 3 tane kaldı. Biri senin bedenin mi?", "Ürün askıda, üstünde S, M ve L etiketleri.", "Stokta son 3 adet: S, M, L. DM'den 'ayırt' yaz, 24 saat senin.", "Kıtlık hissi ve tek kelimelik kolay aksiyon, DM'den doğrudan satış getirir.", "Cumartesi 11.00"]
     ]},
     emlak: { name: "Emlak", items: [
-      ["Reels · 60 sn", "60 saniyede daire turu", "Kapıdan girişten balkon manzarasına tek çekim tur.", "3+1, 140 m², metroya 5 dakika. 60 saniyede gez, beğenirsen yerinde gösterelim.", "Pazar 21.00"],
-      ["Gönderi", "Bölge rehberi", "Mahalledeki okul, market ve ulaşım noktaları tek görselde.", "Esenyurt'ta ev bakıyorsan bu rehberi kaydet. Hangi mahalleyi merak ediyorsan yorumlara yaz.", "Salı 20.00"],
-      ["Kaydırmalı gönderi", "Haftanın fırsatı", "Bu hafta öne çıkan 3 ilan, fiyat ve kısa notla.", "Bu haftanın 3 fırsatı. Detay ve randevu için DM'den yaz.", "Cumartesi 10.00"]
+      ["Reels · 30 sn", "Kirası ne kadar? Tahmin et", "Esenyurt'ta bu 2+1'in kirası ne kadar? Tahmin et, sonda söylüyorum.", "Dairenin hızlı turu, fiyat son saniyede açıklanır.", "Tahminini yorumlara yaz. En yakın tahmin edene bir sonraki ilanı herkesten önce gösteriyoruz.", "Tahmin oyunu videoyu sonuna kadar izletir. İzlenme süresi uzadıkça video daha çok kişiye gider.", "Pazar 21.00"],
+      ["Reels · 45 sn", "Kimsenin bakmadığı 5 şey", "Ev bakarken kimsenin kontrol etmediği 5 şey.", "Rutubet izi, su basıncı, sigorta kutusu, pencere contası ve cephe. Her biri 5 saniyede gösterilir.", "Kaydet, ev bakarken lazım olacak. Bizimle gezersen hepsini birlikte kontrol ediyoruz.", "Kaydetme oranı çok yüksek olur. Seni 'işini bilen danışman' yapar, ilan değil güven satarsın.", "Salı 20.00"],
+      ["Story", "İlana düşmeden önce", "Bu daire yarın ilana çıkıyor. Takipçilerimiz 24 saat önce görüyor.", "Dairenin 3 kısa videosu ve 'yarın ilanda' etiketi.", "İlan sitelerine düşmeden görmek için bizi takip et. Bu daireyi görmek isteyen DM atsın.", "Takip etmek için somut bir sebep verir. Her yeni takipçi, sana ait bir müşteri listesi demek.", "Cuma 18.00"]
     ]},
     klinik: { name: "Klinik", items: [
-      ["Reels", "Doktorumuz cevaplıyor", "Sık sorulan bir soruya 30 saniyelik genel bilgi. Önce/sonra ya da fiyat yok.", "Diş beyazlatma dişe zarar verir mi? Doktorumuz 30 saniyede anlatıyor.", "Çarşamba 20.00"],
-      ["Gönderi", "Kliniğimizi tanıyın", "Ekip, sterilizasyon ve bekleme alanı.", "Güler yüzlü ekibimiz ve sterilizasyon odamız. Randevu için profildeki linke dokun.", "Salı 12.30"],
-      ["Kaydırmalı gönderi", "Sık sorulan 3 soru", "Hastaların en çok sorduğu 3 soru ve kısa cevapları.", "En çok sorulan 3 soru. Kaydet, ihtiyacın olduğunda elinin altında olsun.", "Pazar 19.00"]
+      ["Reels · 30 sn", "Fark etmeden yaptığın hata", "Dişlerini fırçalarken yaptığın bu hata diş etine zarar veriyor olabilir.", "Doktor kısa ve net bir bilgi verir. Önce/sonra görseli ve fiyat yok.", "Hangisini yapıyordun? Kaydet ve ailenle paylaş.", "'Ben de mi yapıyorum?' merakı videoyu izletir, aileyle paylaşım erişimi katlar.", "Çarşamba 20.00"],
+      ["Reels serisi", "Soramadığın sorular", "Utandığınız için doktora soramadığınız soruları cevaplıyoruz.", "Story'deki anonim soru kutusundan gelen sorular, her hafta doktor tarafından cevaplanır.", "Sorunu story'deki kutuya isimsiz yaz, haftaya doktorumuz cevaplasın.", "Güven ve topluluk hissi yaratır. Soru kutusu her hafta kendiliğinden yeni içerik üretir.", "Pazar 19.00"],
+      ["Gönderi", "Görmediğin kısım", "Her hastadan önce 20 dakika: görmediğiniz süreç.", "Sterilizasyon, cihaz kontrolü ve sabah ekip toplantısı.", "Görmediğin kısım: her hastadan önce bu süreç. Randevu linki profilde.", "Sağlıkta karar sebebi güvendir. Görünmeyen emeği göstermek, fiyat konuşmadan güven satar.", "Salı 12.30"]
     ]}
   };
   const tabs = document.getElementById("ideaTabs"), box = document.getElementById("ideas");
   let cur = "kafe";
   function draw() {
     tabs.innerHTML = Object.entries(D).map(([k, v]) => `<button type="button" class="tab" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
-    box.innerHTML = D[cur].items.map(([fmt, t, what, cap, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="what">${what}</p><p class="icap">${cap}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
+    box.innerHTML = D[cur].items.map(([fmt, t, hook, what, cap, why, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="hook"><span>İlk 3 saniye</span>“${hook}”</p><p class="what">${what}</p><p class="icap"><span>Açıklama yazısı</span>${cap}</p><p class="why"><b>Neden işe yarar?</b> ${why}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
   }
   tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return; cur = b.dataset.k; draw(); });
   draw();
