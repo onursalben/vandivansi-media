@@ -150,6 +150,21 @@ section { padding-block: 96px; }
 .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
 .qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
 .qerr { color: #B3332C; font-size: 14px; }
+.kvkk { font-size: 13px; color: var(--ink); }
+.hero-facts { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; color: var(--paper); }
+.hero-facts li { display: flex; align-items: center; gap: 8px; }
+.hero-facts li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.who { font-size: 13px; color: var(--ink); border-top: 1px solid var(--line); padding-top: 12px; }
+.who b { color: var(--navy); font-weight: 500; }
+.guide { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; margin-bottom: 24px; }
+.guide-title { font-family: var(--serif); font-size: 24px; margin-bottom: 8px; }
+.guide ul { list-style: none; padding: 0; margin: 0; display: grid; }
+.guide li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 16px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.guide li b { font-weight: 500; }
+.guide li span { color: var(--ink); }
+.guide li a { color: #8A6A2E; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.guide li a:hover { text-decoration: underline; }
+@media (max-width: 820px) { .guide li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
 .qok { background: #E3F1EA; border: 1px solid #C6E2D3; border-radius: 12px; padding: 16px; display: grid; gap: 4px; color: #1F4D38; outline: none; }
 .qok-title { font-family: var(--serif); font-size: 24px; color: #1F4D38; }
 .qform button[disabled] { opacity: 0.6; cursor: progress; }
@@ -330,7 +345,6 @@ footer { background: var(--navy); color: #C9CFDA; }
 </style>
 
 <div lang="tr">
-<div class="draft">Önizleme taslağı · Fiyatlar ve metinler henüz kesinleşmedi</div>
 
 <header class="hero">
   <div class="wrap">
@@ -355,7 +369,12 @@ footer { background: var(--navy); color: #C9CFDA; }
       <div>
         <p class="eyebrow">Biz denedik, işe yarıyor</p>
         <h1>Dükkânını, kafeni, restoranını Instagram'da büyütüyoruz</h1>
-        <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı yöntemle Esenyurt'tan tüm İstanbul'a kafe, restoran ve yerel işletmelerin Instagram, TikTok, YouTube ve Facebook hesaplarını yönetiyoruz.</p>
+        <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı yöntemle kafe, restoran, kuaför, butik, emlak ofisi, klinik ve tüm yerel işletmelerin Instagram, TikTok, YouTube ve Facebook hesaplarını yönetiyoruz. Çekimli hizmet İstanbul'da, çekimsiz hizmet tüm Türkiye'de.</p>
+        <ul class="hero-facts">
+          <li>Aylık 2.990 ₺'den başlayan paketler</li>
+          <li>Taahhüt yok</li>
+          <li>Şifreni istemiyoruz</li>
+        </ul>
         <div class="cta-row">
           <a class="btn btn-gold" href="#paketler">Paketleri gör</a>
           <a class="btn btn-ghost" href="#teklif">Ücretsiz ön görüşme</a>
@@ -421,6 +440,15 @@ footer { background: var(--navy); color: #C9CFDA; }
         <p class="kicker">Paketler</p>
         <h2>Önce platformunu seç, sonra paketini</h2>
         <p>Her basamak bir öncekinden biraz daha fazla şey katıyor. Kartların altındaki "fark" satırı, bir üst pakete geçince ne kazandığını gösteriyor.</p>
+      </div>
+      <div class="guide" aria-label="Hangi paket bana uygun?">
+        <p class="guide-title">Hangi paket bana uygun?</p>
+        <ul>
+          <li><b>Bütçem kısıtlı, önce görmek istiyorum</b><span>Hesap Analizi · 1.990 ₺ tek sefer, aylık pakete geçersen ücreti düşülür</span><a href="#strateji">İncele</a></li>
+          <li><b>Esnafım, düzenli paylaşım istiyorum</b><span>Facebook Başlangıç · 2.990 ₺/ay ya da Instagram Başlangıç · 4.990 ₺/ay</span><a href="#paketler" data-pick="facebook">Facebook'a bak</a></li>
+          <li><b>Instagram'da büyümek istiyorum</b><span>Instagram Güç · 8.490 ₺/ay, en çok tercih edilen</span><a href="#paketler" data-pick="instagram">Instagram'a bak</a></li>
+          <li><b>Çekimle de uğraşmak istemiyorum</b><span>Instagram Stüdyo · 14.990 ₺/ay, çekimi biz yapıyoruz (İstanbul)</span><a href="#paketler" data-pick="instagram">Instagram'a bak</a></li>
+        </ul>
       </div>
       <div class="tabs" role="group" aria-label="Platform seç" id="tabs"></div>
       <div class="ladder" id="ladder" aria-live="polite"></div>
@@ -646,6 +674,7 @@ footer { background: var(--navy); color: #C9CFDA; }
         <label for="q-pkg">İlgilendiğin paket veya hizmet<input id="q-pkg" name="pkg" type="text" placeholder="Instagram Güç"></label>
         <label for="q-msg">Eklemek istediğin bir şey<textarea id="q-msg" name="msg" rows="3" placeholder="Örneğin: Yeni açıldık, hafta sonu daha çok müşteri istiyoruz"></textarea></label>
         <p class="qerr" id="qerr" hidden>Adını ve işletmenin adını yazar mısın?</p>
+        <p class="kvkk">Bilgilerin yalnızca sana teklif hazırlamak ve dönüş yapmak için kullanılır, reklam ya da pazarlama amacıyla kimseyle paylaşılmaz.</p>
         <button type="submit" class="btn btn-navy">Gönder</button>
         <div class="qok" id="qok" tabindex="-1" hidden>
           <p class="qok-title">Mesajın ulaştı</p>
@@ -735,10 +764,10 @@ const combos = [
   ["İkili Güç", "Instagram Güç + Facebook Güç. Kafe, restoran ve kuaförler için.", 14480, 11990],
   ["Video İkilisi", "Instagram Güç + TikTok Gelişim. Genç kitleye ulaşmak için.", 14980, 12490],
   ["Üçlü Güç", "Instagram Güç + Facebook Güç + TikTok Gelişim.", 20970, 16990],
-  ["Dörtlü MAX", "Dört platformun en üst paketleri, tek çekim planıyla.", 59960, 41990]
+  ["Dörtlü MAX", "Instagram, Facebook ve TikTok MAX + YouTube Pro, tek çekim planıyla.", 59960, 41990]
 ];
 const check = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg>';
-function cardsHTML(prefix, items, unit) {
+function cardsHTML(prefix, items, unit, who) {
   return items.map((it, i) => {
     const [name, price, feats, diff, shoot, star] = it;
     const pop = star || (name === "Güç" && star !== false);
@@ -750,6 +779,7 @@ function cardsHTML(prefix, items, unit) {
       <h3>${(prefix + " " + name).trim()}</h3>
       <p class="price">${fmt(price)} <small>${unit}</small></p>
       <ul class="feat">${feats.map(f => `<li>${check}<span>${f}</span></li>`).join("")}</ul>
+      ${who ? `<p class="who"><b>İçeriği kim çekiyor?</b> ${shoot ? "Çekimi biz yapıyoruz (İstanbul içi)." : "Fotoğraf ve videoları sen telefonla çekip gönderiyorsun, düzenleme ve paylaşım bizden."}</p>` : ""}
       ${d}
       <a class="btn btn-navy" href="#teklif">Bu paketi seç</a>
     </article>`;
@@ -762,7 +792,7 @@ function switcher(tabsId, ladderId, data, start, key, prefixOf, unitOf) {
   function draw() {
     tabsEl.innerHTML = Object.entries(data).map(([k, v]) =>
       `<button type="button" class="tab" id="${tabsId}-${k}" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
-    ladderEl.innerHTML = cardsHTML(prefixOf(data[cur]), data[cur].items, unitOf(data[cur]));
+    ladderEl.innerHTML = cardsHTML(prefixOf(data[cur]), data[cur].items, unitOf(data[cur]), ladderId === "ladder");
   }
   tabsEl.addEventListener("click", e => {
     const b = e.target.closest(".tab"); if (!b) return;
@@ -774,6 +804,12 @@ function switcher(tabsId, ladderId, data, start, key, prefixOf, unitOf) {
 switcher("tabs", "ladder", P, "instagram", "vm-platform", g => g.name, () => "/ay");
 switcher("animTabs", "animLadder", A, "tek", "vm-anim", g => g.label, g => g.unit || "tek sefer");
 document.getElementById("stratLadder").innerHTML = cardsHTML("", S.items, "tek sefer");
+
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-pick]"); if (!a) return;
+  const tab = document.getElementById("tabs-" + a.dataset.pick);
+  if (tab) tab.click();
+});
 
 (function nav() {
   const btn = document.getElementById("menuBtn"), links = document.getElementById("navLinks");
