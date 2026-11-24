@@ -151,6 +151,12 @@ section { padding-block: 96px; }
 .qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
 .qerr { color: #B3332C; font-size: 14px; }
 .kvkk { font-size: 13px; color: var(--ink); }
+.dm-float { position: fixed; z-index: 30; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--paper); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(200,162,90,0.6); box-shadow: 0 8px 24px rgba(14,30,58,0.25); transition: background-color 160ms var(--ease); }
+.dm-float:hover { background: #172B4F; }
+.dm-float svg { color: var(--gold); }
+.dm-inline { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--navy); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+.dm-inline svg { color: #8A6A2E; }
+@media (max-width: 480px) { .dm-float span { display: none; } .dm-float { padding: 14px; } }
 .hero-facts { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; color: var(--paper); }
 .hero-facts li { display: flex; align-items: center; gap: 8px; }
 .hero-facts li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
@@ -648,6 +654,7 @@ footer { background: var(--navy); color: #C9CFDA; }
         <p class="kicker">Teklif al</p>
         <h2>İşletmeni anlat, aynı gün dönelim</h2>
         <p>Formu doldur, "Gönder"e bas. Mesajın doğrudan bize ulaşır, aynı gün dönüyoruz. İlk görüşme ücretsiz ve 20 dakika.</p>
+        <a class="dm-inline" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Form doldurmak istemezsen Instagram'dan yaz</a>
         <ul class="quote-points">
           <li>Ücretsiz mini hesap analizi</li>
           <li>İlk 3 müşteriye %30 indirim</li>
@@ -689,6 +696,7 @@ footer { background: var(--navy); color: #C9CFDA; }
     </div>
   </section>
 </main>
+<a class="dm-float" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener" aria-label="Instagram'dan mesaj gönder"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram'dan yaz</span></a>
 
 <footer id="iletisim">
   <div class="wrap foot">
@@ -702,7 +710,7 @@ footer { background: var(--navy); color: #C9CFDA; }
     <div>
       <h3>Teklif ve iletişim</h3>
       <p class="mail">vandivansimedia@gmail.com</p>
-      <p style="margin-top:6px;">Instagram: <a class="iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi</a></p>
+      <p style="margin-top:6px;">Instagram: <a class="iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi</a> · <a class="iglink" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener">mesaj gönder</a></p>
     </div>
   </div>
 </footer>
