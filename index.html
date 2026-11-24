@@ -151,6 +151,46 @@ section { padding-block: 96px; }
 .qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
 .qerr { color: #B3332C; font-size: 14px; }
 .kvkk { font-size: 13px; color: var(--ink); }
+.stats-band { background: var(--navy); color: var(--paper); border-top: 1px solid rgba(247,245,240,0.1); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 40px; }
+.stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.4vw, 56px); line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
+.stats span { display: block; margin-top: 8px; font-size: 14px; color: #C9CFDA; max-width: 18em; }
+.karne-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.karne { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; }
+.kq { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: k; }
+.kq li { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; counter-increment: k; }
+.kq li::before { content: counter(k) "."; position: absolute; opacity: 0; }
+.kq .yn { display: inline-flex; border: 1px solid #D9D4C8; border-radius: 8px; overflow: hidden; }
+.kq .yn button { font: inherit; font-size: 13px; padding: 6px 12px; border: 0; background: var(--white); color: var(--navy); cursor: pointer; transition: background-color 120ms var(--ease); }
+.kq .yn button + button { border-left: 1px solid #D9D4C8; }
+.kq .yn button[aria-pressed="true"].y { background: #E3F1EA; color: #1F4D38; }
+.kq .yn button[aria-pressed="true"].n { background: #F6E3E1; color: #8A2A24; }
+.kres { background: var(--paper); border-radius: 12px; padding: 20px; display: grid; gap: 12px; align-content: start; position: sticky; top: 16px; }
+.kscore b { font-family: var(--serif); font-weight: 400; font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
+.kscore span { font-size: 18px; color: var(--ink); }
+.kbar { height: 8px; background: #E7E2D8; border-radius: 4px; overflow: hidden; }
+.kbar span { display: block; height: 100%; width: 0; background: var(--gold); transition: width 400ms var(--ease); }
+.kgrade { font-weight: 500; }
+.ktips { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 13px; color: var(--ink); }
+.ktips li { padding-left: 14px; position: relative; }
+.ktips li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.ideas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.idea { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 12px; align-content: start; }
+.idea .fmt { font-size: 12px; color: #8A6A2E; font-weight: 500; }
+.idea h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.15; }
+.idea .what { font-size: 14px; color: var(--ink); }
+.idea .cap { font-size: 14px; background: var(--paper); border-radius: 10px; padding: 12px; white-space: pre-line; }
+.idea .when { font-size: 13px; color: var(--navy); display: flex; gap: 8px; align-items: center; }
+.idea .when::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.ideas-note { margin-top: 16px; font-size: 14px; color: var(--ink); }
+.rv { opacity: 0; transform: translateY(12px); transition: opacity 500ms var(--ease), transform 500ms var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+.hero h1 .w { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 .w { opacity: 0; transform: translateY(10px); animation: rise 500ms var(--ease) forwards; }
+}
+@media (max-width: 960px) { .karne { grid-template-columns: minmax(0, 1fr); } .kres { position: static; } .ideas { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 820px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .karne-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
 .dm-float { position: fixed; z-index: 30; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--paper); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(200,162,90,0.6); box-shadow: 0 8px 24px rgba(14,30,58,0.25); transition: background-color 160ms var(--ease); }
 .dm-float:hover { background: #172B4F; }
 .dm-float svg { color: var(--gold); }
@@ -440,6 +480,35 @@ footer { background: var(--navy); color: #C9CFDA; }
 
 
 <main>
+  <div class="stats-band">
+    <div class="wrap stats">
+      <div><b data-count="45100">45.100</b><span>takipçi, @vandivansi hesabında</span></div>
+      <div><b data-count="8">8</b><span>yıllık sosyal medya tecrübesi</span></div>
+      <div><b data-count="4">4</b><span>platform: Instagram, TikTok, YouTube, Facebook</span></div>
+      <div><b>Aynı gün</b><span>teklif ve dönüş</span></div>
+    </div>
+  </div>
+
+  <section id="karne">
+    <div class="wrap karne-grid">
+      <div class="sec-head">
+        <p class="kicker">Ücretsiz test · 1 dakika</p>
+        <h2>Instagram hesabın kaç puan alıyor?</h2>
+        <p>10 soruyu cevapla, hesabının karnesini hemen gör. Hangi eksiklerin müşteri kaybettirdiğini ve önce neyi düzeltmen gerektiğini söyleyelim.</p>
+      </div>
+      <div class="karne" id="karneBox">
+        <ol class="kq" id="kq"></ol>
+        <div class="kres" id="kres" aria-live="polite">
+          <div class="kscore"><b id="kpts">0</b><span>/100</span></div>
+          <div class="kbar"><span id="kfill"></span></div>
+          <p class="kgrade" id="kgrade">Soruları cevapladıkça puanın burada oluşacak</p>
+          <ul class="ktips" id="ktips"></ul>
+          <a class="btn btn-navy" href="#teklif" id="kcta" hidden>Ücretsiz mini analiz iste</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="paketler">
     <div class="wrap">
       <div class="sec-head">
@@ -475,6 +544,19 @@ footer { background: var(--navy); color: #C9CFDA; }
         <span><b>3 platform</b> %20 indirim</span>
         <span><b>4 platform</b> %25 indirim</span>
       </div>
+    </div>
+  </section>
+
+  <section id="fikir">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Nasıl düşündüğümüzü gör</p>
+        <h2>İşletmen için 3 post fikri, hemen şimdi</h2>
+        <p>Sektörünü seç. Her işletmeye özel hazırladığımız içerik planından küçük bir örnek göreceksin: fikir, hazır açıklama yazısı ve en iyi paylaşım saati.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Sektör seç" id="ideaTabs"></div>
+      <div class="ideas" id="ideas" aria-live="polite"></div>
+      <p class="ideas-note">Bunlar herkese açık örnekler. Aylık paketlerde işletmene, müşterine ve rakiplerine göre her ay yeni bir plan hazırlıyoruz.</p>
     </div>
   </section>
 
@@ -987,4 +1069,125 @@ document.addEventListener("click", e => {
 })();
 document.getElementById("combos").innerHTML = combos.map(([n, inc, was, now]) =>
   `<article class="combo"><h3>${n}</h3><p class="inc">${inc}</p><p class="was">${fmt(was)}</p><p class="now">${fmt(now)} <small style="font-size:13px;color:#C9CFDA;font-family:var(--body);font-weight:400;">/ay</small></p><span class="save">${fmt(was - now)} tasarruf</span></article>`).join("");
+
+(function karne() {
+  const Q = [
+    ["Profil fotoğrafın logon ya da tabelan mı?", "Profil fotoğrafına logonu ya da tabelanı koy, küçük ekranda bile okunsun."],
+    ["Bio'da adres, çalışma saati ve iletişim var mı?", "Bio'ya adres, çalışma saati ve tek dokunuşla ulaşılan bir link ekle."],
+    ["Haftada en az 3 gönderi paylaşıyor musun?", "Haftada en az 3 gönderi paylaş, algoritma düzenli hesapları öne çıkarır."],
+    ["Son 7 günde en az 1 reels paylaştın mı?", "Haftada en az 1 reels paylaş, seni tanımayan kişilere ulaşmanın en hızlı yolu bu."],
+    ["Her gün en az 1 story atıyor musun?", "Her gün 1–2 story at, takipçilerin seni her gün hatırlasın."],
+    ["Yorum ve mesajlara 24 saat içinde dönüyor musun?", "Yorum ve mesajlara 24 saat içinde dön, cevapsız mesaj kaçan müşteri demek."],
+    ["Öne çıkanlarda menü, konum ve yorumlar var mı?", "Öne çıkanlara Menü, Konum, Yorumlar ve Kampanyalar başlıklarını koy."],
+    ["Google İşletme profilin güncel mi?", "Google İşletme profilini güncelle, 'yakınımdaki' aramalarında çıkarsın."],
+    ["Paylaşımların aynı renk ve tasarım dilinde mi?", "Paylaşımlarında aynı renkleri ve yazı tipini kullan, profilin bir vitrin gibi görünsün."],
+    ["Ayda en az bir kez istatistiklerine bakıyor musun?", "Ayda bir istatistiklerine bak, hangi gönderinin işe yaradığını rakamla gör."]
+  ];
+  const list = document.getElementById("kq"), pts = document.getElementById("kpts"), fill = document.getElementById("kfill");
+  const grade = document.getElementById("kgrade"), tips = document.getElementById("ktips"), cta = document.getElementById("kcta");
+  const ans = new Array(Q.length).fill(null);
+  list.innerHTML = Q.map((q, i) => `<li><span>${q[0]}</span><span class="yn" role="group" aria-label="${q[0]}"><button type="button" class="y" data-i="${i}" data-v="1" aria-pressed="false">Evet</button><button type="button" class="n" data-i="${i}" data-v="0" aria-pressed="false">Hayır</button></span></li>`).join("");
+  list.addEventListener("click", e => {
+    const b = e.target.closest("button[data-i]"); if (!b) return;
+    const i = +b.dataset.i; ans[i] = b.dataset.v === "1";
+    b.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    update();
+  });
+  function update() {
+    const answered = ans.filter(a => a !== null).length;
+    const score = ans.filter(a => a === true).length * 10;
+    pts.textContent = score; fill.style.width = score + "%";
+    if (answered < Q.length) { grade.textContent = `${answered}/${Q.length} soru cevaplandı`; }
+    else if (score >= 80) grade.textContent = "Çok iyi. Şimdi sıra büyümede: reklam ve reels ile yeni kitleye ulaşalım.";
+    else if (score >= 60) grade.textContent = "İyi, ama kaçırdığın müşteriler var. Birkaç düzeltmeyle hızla yükselir.";
+    else if (score >= 40) grade.textContent = "Geliştirilmeli. Hesabın müşterine işletmeni olduğundan zayıf gösteriyor.";
+    else grade.textContent = "Acil bakım lazım. İyi haber: en hızlı sonuç buradan alınır.";
+    const no = Q.filter((q, i) => ans[i] === false).map(q => q[1]).slice(0, 3);
+    tips.innerHTML = no.map(t => `<li>${t}</li>`).join("");
+    cta.hidden = answered < Q.length;
+  }
+  cta.addEventListener("click", () => {
+    const pkg = document.getElementById("q-pkg");
+    if (pkg) pkg.value = "Ücretsiz mini hesap analizi (Karne puanım: " + pts.textContent + "/100)";
+  });
+})();
+
+(function ideas() {
+  const D = {
+    kafe: { name: "Kafe", items: [
+      ["Reels · 10 sn", "Günün ilk fincanı", "Sabah açılışta hazırlanan ilk kahve: süt köpüğü, fincanın tezgâha konuşu, ses açık.", "Günün ilk fincanı hazır. Kapımız 08.00'de açık, en sevdiğin köşe seni bekliyor ☕", "Hafta içi 08.00–09.00"],
+      ["Gönderi", "Müdavim köşesi", "Düzenli gelen bir müşterinin favori içeceği ve kısa bir cümlesi (izniyle).", "Ayşe Hanım 2 yıldır her sabah aynı masada, hep orta şekerli Türk kahvesi. Senin favorin ne?", "Salı 19.00"],
+      ["Story anketi", "Hangisi?", "İki tatlının fotoğrafı yan yana, anket çıkartmasıyla.", "San Sebastian mı, tiramisu mu? Kazanan cuma günü %20 indirimli.", "Perşembe 20.00"]
+    ]},
+    restoran: { name: "Restoran", items: [
+      ["Reels · 10 sn", "Ocaktan masaya", "Izgarada alev, tabağa servis ve masaya konuş. Hızlı kesimler, ses açık.", "Közün sesi, tabağın kokusu. Öğle menümüz 11.30'da hazır 🔥", "Hafta içi 11.00"],
+      ["Story şablonu", "Bugünün menüsü", "Her sabah aynı şablonda günün 3 yemeği ve fiyatı.", "Bugün: mercimek, fırın tavuk, sütlaç. Paket servis için DM ya da telefon.", "Her gün 10.30"],
+      ["Kaydırmalı gönderi", "Ustamızın tarifi", "Bir imza yemeğin 4 adımı, son karede 'bizde daha lezzetli' kapanışı.", "Ustamızın 20 yıllık tarifi, 4 adımda. Evde dene, ama asıl lezzeti bizde.", "Pazar 18.00"]
+    ]},
+    kuafor: { name: "Kuaför", items: [
+      ["Reels", "Önce ve sonra", "Müşterinin izniyle 8 saniyelik dönüşüm videosu, trend sesle.", "3 saatlik emeğin 8 saniyelik hali. Randevu için profildeki linke dokun ✂️", "Cuma 19.30"],
+      ["Kaydırmalı gönderi", "Bu sezonun 3 rengi", "Üç saç rengi, her birine kime yakışır notu.", "Bu kış en çok istenen 3 renk. Sana hangisi yakışır, yorumlara yaz, söyleyelim.", "Çarşamba 18.00"],
+      ["Story", "Boş saat var", "O günün boşalan randevu saati, geri sayım çıkartmasıyla.", "Bugün 15.00'te bir yer açıldı. İlk yazan alır.", "Anlık"]
+    ]},
+    butik: { name: "Butik", items: [
+      ["Reels", "1 parça, 3 kombin", "Tek bir ceketle iş, hafta sonu ve akşam kombini.", "Bir ceket, üç hayat. Hangisi senin tarzın? 1, 2 ya da 3 yaz.", "Salı 20.00"],
+      ["Kaydırmalı gönderi", "Yeni gelenler", "Haftanın yeni ürünleri, fiyatı ve beden bilgisiyle.", "Yeni sezon raflarda. Beden ve stok için DM'den yaz, aynı gün kargoda.", "Perşembe 19.00"],
+      ["Story", "Sadece story'de", "24 saat geçerli indirim kodu.", "Bu kod sadece bugün geçerli: STORY10. Kasada göster ya da DM'den yaz.", "Cumartesi 11.00"]
+    ]},
+    emlak: { name: "Emlak", items: [
+      ["Reels · 60 sn", "60 saniyede daire turu", "Kapıdan girişten balkon manzarasına tek çekim tur.", "3+1, 140 m², metroya 5 dakika. 60 saniyede gez, beğenirsen yerinde gösterelim.", "Pazar 21.00"],
+      ["Gönderi", "Bölge rehberi", "Mahalledeki okul, market ve ulaşım noktaları tek görselde.", "Esenyurt'ta ev bakıyorsan bu rehberi kaydet. Hangi mahalleyi merak ediyorsan yorumlara yaz.", "Salı 20.00"],
+      ["Kaydırmalı gönderi", "Haftanın fırsatı", "Bu hafta öne çıkan 3 ilan, fiyat ve kısa notla.", "Bu haftanın 3 fırsatı. Detay ve randevu için DM'den yaz.", "Cumartesi 10.00"]
+    ]},
+    klinik: { name: "Klinik", items: [
+      ["Reels", "Doktorumuz cevaplıyor", "Sık sorulan bir soruya 30 saniyelik genel bilgi. Önce/sonra ya da fiyat yok.", "Diş beyazlatma dişe zarar verir mi? Doktorumuz 30 saniyede anlatıyor.", "Çarşamba 20.00"],
+      ["Gönderi", "Kliniğimizi tanıyın", "Ekip, sterilizasyon ve bekleme alanı.", "Güler yüzlü ekibimiz ve sterilizasyon odamız. Randevu için profildeki linke dokun.", "Salı 12.30"],
+      ["Kaydırmalı gönderi", "Sık sorulan 3 soru", "Hastaların en çok sorduğu 3 soru ve kısa cevapları.", "En çok sorulan 3 soru. Kaydet, ihtiyacın olduğunda elinin altında olsun.", "Pazar 19.00"]
+    ]}
+  };
+  const tabs = document.getElementById("ideaTabs"), box = document.getElementById("ideas");
+  let cur = "kafe";
+  function draw() {
+    tabs.innerHTML = Object.entries(D).map(([k, v]) => `<button type="button" class="tab" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
+    box.innerHTML = D[cur].items.map(([fmt, t, what, cap, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="what">${what}</p><p class="cap">${cap}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
+  }
+  tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return; cur = b.dataset.k; draw(); });
+  draw();
+})();
+
+(function motion() {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const h1 = document.querySelector(".hero h1");
+  if (h1 && !reduce) {
+    h1.innerHTML = h1.textContent.trim().split(/\s+/).map((w, i) => `<span class="w" style="animation-delay:${80 + i * 60}ms">${w}</span>`).join(" ");
+  }
+  const counters = [...document.querySelectorAll("[data-count]")];
+  const fmtN = n => n.toLocaleString("tr-TR");
+  function count(el) {
+    const end = +el.dataset.count;
+    if (reduce) { el.textContent = fmtN(end); return; }
+    const t0 = performance.now(), dur = 1200;
+    (function step(t) {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmtN(Math.round(end * e));
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target;
+    if (el.dataset.count) count(el); else el.classList.add("in");
+    io.unobserve(el);
+  }), { threshold: 0.15 });
+  counters.forEach(el => { el.textContent = "0"; io.observe(el); });
+  if (!reduce) {
+    const items = document.querySelectorAll("main .sec-head, .guide, .combo, .steps li, .faq, .qform, .about-card, .karne");
+    items.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) return;
+      el.classList.add("rv"); io.observe(el);
+    });
+  }
+})();
 </script>
