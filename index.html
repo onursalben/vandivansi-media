@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap">
 <style>
 /* Layout: navy hero with proof card, then platform switcher driving a package ladder, combos, steps, promo band, footer. Single deliberate light look. */
 :root {
@@ -22,8 +22,10 @@
   --ink: #4A5468;
   --green: #2E8B62;
   --line: #E3DFD5;
-  --display: "Sora", "Segoe UI", system-ui, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;
 }
 * { box-sizing: border-box; }
@@ -42,7 +44,7 @@ button { font: inherit; cursor: pointer; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .mark { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 500; color: var(--gold); font-size: 18px; }
 .word { display: flex; flex-direction: column; line-height: 1.1; }
-.word b { font-family: var(--display); font-weight: 600; letter-spacing: 0.22em; font-size: 15px; color: var(--paper); }
+.word b { font-family: var(--display); font-weight: 600; letter-spacing: 0.16em; font-size: 15px; color: var(--paper); }
 .word small { font-size: 10px; letter-spacing: 0.5em; color: var(--gold); margin-top: 3px; }
 .links { display: flex; gap: 24px; align-items: center; font-size: 14px; flex-wrap: wrap; }
 .links a { text-decoration: none; opacity: 0.85; }
@@ -51,11 +53,43 @@ button { font: inherit; cursor: pointer; }
 .btn-ghost { border-color: rgba(247,245,240,0.35); color: var(--paper); }
 .btn-navy { background: var(--navy); color: var(--paper); width: 100%; justify-content: center; }
 
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 48px 72px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; padding-block: 64px 96px; }
 .eyebrow { font-size: 14px; letter-spacing: 0.01em; color: var(--gold); margin-bottom: 16px; }
-.hero h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.1; color: var(--paper); }
+h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.hero h1 { font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -0.02em; color: var(--paper); }
 .hero h1 em { font-style: normal; color: var(--gold); }
-.lead { margin-top: 20px; font-size: 18px; color: #C9CFDA; max-width: 34em; }
+.lead { margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9CFDA; max-width: 36rem; }
+.device-wrap { position: relative; margin: 0; justify-self: center; width: 100%; max-width: 420px; padding: 0 0 40px 48px; }
+.phone { background: #070E1D; border-radius: 40px; padding: 12px; box-shadow: 0 24px 48px rgba(0,0,0,0.35); border: 1px solid rgba(247,245,240,0.12); }
+.ph-screen { background: var(--white); color: #111827; border-radius: 28px; padding: 16px 16px 12px; display: grid; gap: 8px; }
+.ph-top { display: flex; justify-content: space-between; align-items: center; font-size: 15px; }
+.ph-dots { display: flex; gap: 3px; } .ph-dots i { width: 4px; height: 4px; border-radius: 50%; background: #111827; }
+.ph-prof { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; margin-top: 4px; }
+.ph-av { width: 64px; height: 64px; border-radius: 50%; background: #3A2A22; color: #F1E6D2; display: grid; place-items: center; font-family: var(--serif); font-size: 28px; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8A25A; }
+.ph-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; }
+.ph-stats b { display: block; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ph-stats span { font-size: 12px; color: #4B5565; }
+.ph-name { font-size: 13px; font-weight: 600; }
+.ph-bio { font-size: 12px; color: #4B5565; margin-top: -6px; }
+.ph-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 4px -16px 0; }
+.ph-grid .t { aspect-ratio: 1 / 1; display: grid; place-items: end start; padding: 8px; }
+.ph-grid .t span { font-family: var(--serif); font-size: 13px; line-height: 1.1; }
+.t.esp { background: #3A2A22; color: #F1E6D2; } .t.cream { background: #F1E6D2; color: #3A2A22; } .t.sage { background: #7E9A82; color: #FBF8F1; }
+.insight { position: absolute; left: 0; bottom: 64px; width: 248px; background: var(--white); color: var(--navy); border-radius: 16px; padding: 16px 16px 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+.in-label { font-size: 12px; color: var(--ink); }
+.in-num { font-family: var(--display); font-size: 28px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 4px; }
+.in-up { font-size: 12px; color: var(--green); }
+.in-chart { width: 100%; height: 64px; margin-top: 8px; display: block; }
+.device-note { position: absolute; right: 0; bottom: 0; font-size: 12px; color: #8A93A6; }
+.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.intro-text { display: grid; gap: 12px; max-width: 32rem; }
+.intro-text h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+.intro-text p:not(.kicker) { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-grid > * { animation: rise 0.5s var(--ease) both; }
+  .hero-grid > *:nth-child(2) { animation-delay: 60ms; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
 .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 
 .proof { background: var(--navy-2); border: 1px solid rgba(200,162,90,0.45); border-radius: 16px; padding: 24px; }
@@ -70,7 +104,8 @@ button { font: inherit; cursor: pointer; }
 .stat span { font-size: 12px; color: #AEB6C5; }
 .proof-note { margin-top: 18px; font-size: 14px; color: #C9CFDA; border-top: 1px solid rgba(247,245,240,0.12); padding-top: 14px; }
 
-section { padding-block: 72px; }
+section { padding-block: 96px; }
+.sec-head h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
 section.alt { background: var(--white); border-block: 1px solid var(--line); }
 section.alt .card { background: var(--paper); }
 section.alt .diff { background: var(--white); }
@@ -101,12 +136,12 @@ section.alt .diff { background: var(--white); }
 .diff b { color: var(--green); }
 
 .combos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
-.combo { background: var(--navy); color: var(--paper); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
-.combo h3 { font-size: 19px; color: var(--paper); }
-.combo .inc { font-size: 13px; color: #C9CFDA; flex: 1; }
-.combo .was { font-size: 14px; color: #AEB6C5; text-decoration: line-through; }
-.combo .now { font-family: var(--display); font-size: 28px; font-weight: 500; color: var(--gold); font-variant-numeric: tabular-nums; }
-.save { font-size: 12px; background: rgba(46,139,98,0.18); color: #8FD9B6; border-radius: 6px; padding: 3px 8px; align-self: flex-start; }
+.combo { background: var(--white); color: var(--navy); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.combo h3 { font-family: var(--display); font-size: 19px; font-weight: 500; }
+.combo .inc { font-size: 14px; color: var(--ink); flex: 1; }
+.combo .was { font-size: 14px; color: #8A93A6; text-decoration: line-through; font-variant-numeric: tabular-nums; }
+.combo .now { font-family: var(--display); font-size: 28px; font-weight: 500; color: var(--navy); font-variant-numeric: tabular-nums; }
+.save { font-size: 12px; background: #E3F1EA; color: #1F6B4A; border-radius: 6px; padding: 4px 8px; align-self: flex-start; }
 .mix { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--ink); }
 .mix span { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; }
 .mix b { color: var(--navy); }
@@ -160,7 +195,7 @@ footer { background: var(--navy); color: #C9CFDA; }
 .principles li { border-top: 2px solid var(--gold); padding-top: 10px; display: grid; gap: 4px; }
 .principles b { font-family: var(--display); font-size: 16px; }
 .principles span { font-size: 13px; color: var(--ink); }
-.about-quote { margin: 8px 0 0; padding: 20px 24px; background: var(--navy); color: var(--paper); border-radius: 14px; font-family: var(--display); font-size: 18px; line-height: 1.5; }
+.about-quote { margin: 8px 0 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--gold); border-radius: 0; color: var(--navy); font-family: var(--serif); font-size: 26px; line-height: 1.3; }
 @media (max-width: 820px) { .principles { grid-template-columns: minmax(0, 1fr); } }
 .about-card { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); }
 @media (max-width: 820px) { .about-card { position: static; } }
@@ -221,6 +256,10 @@ footer { background: var(--navy); color: #C9CFDA; }
 @keyframes wave { from { transform: rotate(-8deg); } to { transform: rotate(14deg); } }
 @media (max-width: 820px) {
   .stage { justify-self: center; }
+  .intro-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .device-wrap { padding-left: 24px; max-width: 360px; }
+  .insight { width: 200px; bottom: 56px; }
+  .in-num { font-size: 24px; }
   .hero-grid, .band-in { grid-template-columns: minmax(0, 1fr); gap: 32px; }
   .links a { display: none; }
   section { padding-block: 56px; }
@@ -254,16 +293,63 @@ footer { background: var(--navy); color: #C9CFDA; }
 
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">Sosyal medya yönetimi · İstanbul ve tüm Türkiye</p>
-        <h1>Biz denedik, <em>işe yarıyor</em></h1>
-        <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı ekip, aynı yöntemle şimdi senin işletmenin Instagram, Facebook, YouTube ve TikTok hesaplarını yönetiyor.</p>
+        <p class="eyebrow">Biz denedik, işe yarıyor</p>
+        <h1>Dükkânını, kafeni, restoranını Instagram'da büyütüyoruz</h1>
+        <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı yöntemle Esenyurt'tan tüm İstanbul'a kafe, restoran ve yerel işletmelerin Instagram, TikTok, YouTube ve Facebook hesaplarını yönetiyoruz.</p>
         <div class="cta-row">
           <a class="btn btn-gold" href="#paketler">Paketleri gör</a>
-          <a class="btn btn-ghost" href="#iletisim">Ücretsiz ön görüşme</a>
+          <a class="btn btn-ghost" href="#tanitim"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>Tanıtımı izle · 27 sn</a>
         </div>
         <p class="proofline"><a class="handle iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi <span class="tick" aria-label="Onaylı hesap"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 5.2 4.2 7.2 8 3"/></svg></span><svg class="ext" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9"/></svg></a><span><b>45,1 B</b> takipçi</span><span>Ekibimizin kendi hesabı</span></p>
       </div>
 
+      <figure class="device-wrap" aria-label="Örnek müşteri ekranı: Kuytu Kahve Instagram profili ve son 30 günün erişim grafiği">
+        <div class="phone">
+          <div class="ph-screen">
+            <div class="ph-top"><b>kuytukahve</b><span class="ph-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="ph-prof">
+              <div class="ph-av">K</div>
+              <div class="ph-stats"><div><b>128</b><span>gönderi</span></div><div><b>3.412</b><span>takipçi</span></div><div><b>214</b><span>takip</span></div></div>
+            </div>
+            <p class="ph-name">Kuytu Kahve</p>
+            <p class="ph-bio">Beylikdüzü · Her gün 08.00–23.00</p>
+            <div class="ph-grid">
+              <div class="t esp"><span>Salepli Latte</span></div>
+              <div class="t cream"><span>2. kahve %50</span></div>
+              <div class="t sage"><span>Baristamız Selin</span></div>
+              <div class="t cream"><span>Filtre mi, Türk kahvesi mi?</span></div>
+              <div class="t esp"><span>Kış menüsü</span></div>
+              <div class="t sage"><span>★★★★★</span></div>
+              <div class="t sage"><span>Salep mi, çikolata mı?</span></div>
+              <div class="t esp"><span>2027'ye birlikte</span></div>
+              <div class="t cream"><span>Beylikdüzü'nün sakin köşesi</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="insight">
+          <p class="in-label">Son 30 gün · erişilen hesap</p>
+          <p class="in-num">12.400</p>
+          <p class="in-up">+38% önceki 30 güne göre</p>
+          <svg class="in-chart" viewBox="0 0 220 64" aria-hidden="true">
+            <line x1="0" y1="63" x2="220" y2="63" stroke="#E3DFD5" stroke-width="1"/>
+            <line x1="0" y1="32" x2="220" y2="32" stroke="#EFEBE3" stroke-width="1"/>
+            <path d="M0 50 C20 48 30 52 48 46 S80 44 96 40 S128 38 142 30 S176 24 190 16 S210 10 220 8" fill="none" stroke="#B9B2A3" stroke-width="1.5" stroke-dasharray="0" opacity="0"/>
+            <path d="M0 54 C18 53 30 55 46 51 S78 50 94 46 S126 42 140 34 S172 24 188 18 S208 10 220 6" fill="none" stroke="#C8A25A" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="220" cy="6" r="3.5" fill="#C8A25A"/>
+          </svg>
+        </div>
+        <figcaption class="device-note">Örnek müşteri ekranı · Kuytu Kahve hayali bir işletmedir</figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+<section id="tanitim" class="intro">
+  <div class="wrap intro-grid">
+    <div class="intro-text">
+      <p class="kicker">Tanıtım · 27 saniye</p>
+      <h2>Ne yaptığımızı kendi sesimle anlatıyorum</h2>
+      <p>Sosyal medya yönetimi, analiz ve yol haritası, QR menü ve web sitesi. Kısa bir tanıtım, sesi açık izle.</p>
+    </div>
       <div class="stage" id="stage" aria-label="Vandivansi Media tanıtım animasyonu">
         <audio id="vo" src="tanitim.mp3" preload="auto"></audio>
         <div class="scenes">
@@ -310,9 +396,9 @@ footer { background: var(--navy); color: #C9CFDA; }
         <div class="prog"><span id="prog"></span></div>
         <button type="button" class="playbtn" id="playbtn" aria-label="Tanıtımı oynat"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span id="playlbl">Tanıtımı izle · 27 sn</span></button>
       </div>
-    </div>
   </div>
-</header>
+</section>
+
 
 <main>
   <section id="paketler">
