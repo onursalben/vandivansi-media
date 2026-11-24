@@ -179,7 +179,7 @@ section { padding-block: 96px; }
 .idea .fmt { font-size: 12px; color: #8A6A2E; font-weight: 500; }
 .idea h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.15; }
 .idea .what { font-size: 14px; color: var(--ink); }
-.idea .cap { font-size: 14px; background: var(--paper); border-radius: 10px; padding: 12px; white-space: pre-line; }
+.idea .icap { font-size: 14px; background: var(--paper); border-radius: 10px; padding: 12px; white-space: pre-line; }
 .idea .when { font-size: 13px; color: var(--navy); display: flex; gap: 8px; align-items: center; }
 .idea .when::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 .ideas-note { margin-top: 16px; font-size: 14px; color: var(--ink); }
@@ -187,7 +187,8 @@ section { padding-block: 96px; }
 .rv.in { opacity: 1; transform: none; }
 .hero h1 .w { display: inline-block; }
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1 .w { opacity: 0; transform: translateY(10px); animation: rise 500ms var(--ease) forwards; }
+  .hero h1 .w { opacity: 0; transform: translateY(10px); animation: wordIn 500ms var(--ease) forwards; }
+  @keyframes wordIn { to { opacity: 1; transform: none; } }
 }
 @media (max-width: 960px) { .karne { grid-template-columns: minmax(0, 1fr); } .kres { position: static; } .ideas { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 820px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .karne-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
@@ -1149,7 +1150,7 @@ document.getElementById("combos").innerHTML = combos.map(([n, inc, was, now]) =>
   let cur = "kafe";
   function draw() {
     tabs.innerHTML = Object.entries(D).map(([k, v]) => `<button type="button" class="tab" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
-    box.innerHTML = D[cur].items.map(([fmt, t, what, cap, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="what">${what}</p><p class="cap">${cap}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
+    box.innerHTML = D[cur].items.map(([fmt, t, what, cap, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="what">${what}</p><p class="icap">${cap}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
   }
   tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return; cur = b.dataset.k; draw(); });
   draw();
