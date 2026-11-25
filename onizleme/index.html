@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vandivansi Media · Tasarım denemeleri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+:root { --y: #FFE500; --k: #0D0D0D; --r: #FF3B1F; --w: #FFFFFF; --g: #545454; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--y); color: var(--k); font-family: "DM Sans", system-ui, sans-serif; line-height: 1.5; }
+main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+h1 { font-family: "Anton", Impact, sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(40px, 9vw, 72px); line-height: 1.08; margin: 0 0 12px; }
+.lead { font-size: 18px; margin: 0 0 32px; }
+ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: n; }
+li { counter-increment: n; }
+a.item { display: grid; grid-template-columns: 56px 1fr auto; gap: 16px; align-items: center; background: var(--w); border: 3px solid var(--k); box-shadow: 6px 6px 0 var(--k); padding: 16px 20px; text-decoration: none; color: inherit; transition: transform 120ms, box-shadow 120ms; }
+a.item:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--k); }
+a.item::before { content: counter(n); font-family: "Anton", Impact, sans-serif; font-size: 40px; line-height: 1; color: var(--r); }
+a.item b { display: block; font-size: 20px; }
+a.item span { color: var(--g); font-size: 15px; }
+a.item i { font-style: normal; font-weight: 700; background: var(--k); color: var(--y); padding: 6px 12px; white-space: nowrap; }
+a.item.live { background: var(--k); color: var(--w); box-shadow: 6px 6px 0 var(--r); }
+a.item.live span { color: #CFCFCF; }
+a.item.live i { background: var(--y); color: var(--k); }
+.note { margin-top: 32px; font-size: 15px; }
+@media (max-width: 520px) { a.item { grid-template-columns: 40px 1fr; } a.item i { grid-column: 2; justify-self: start; } a.item::before { font-size: 32px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Tasarım denemeleri</h1>
+  <p class="lead">Vandivansi Media sitesi için hazırlanan tasarımlar. Hangisi daha güzel, sence?</p>
+  <ol>
+    <li><a class="item live" href="../"><div><b>Şu anki site</b><span>Lacivert ve altın, şu an yayında olan tasarım</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="gece.html"><div><b>Gece Mesaisi</b><span>Koyu zemin, gece havası</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="defter.html"><div><b>Esnaf Defteri</b><span>Kâğıt ve mürekkep, sıcak esnaf havası</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="story.html"><div><b>Story Modu</b><span>Instagram story gibi, renkli ve hareketli</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="secici.html"><div><b>5'li seçici</b><span>Vitrin, Çini, Neon, Kraft, Gazete: üstteki düğmelerle geçiş</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="deney.html"><div><b>Deney Defteri</b><span>Laboratuvar raporu gibi, sıfırdan yeni yapı</span></div><i>Aç</i></a></li>
+    <li><a class="item" href="afis.html"><div><b>Afiş</b><span>Sokak afişi: sarı-siyah, kayan yazılar, en enerjik olanı</span></div><i>Aç</i></a></li>
+  </ol>
+  <p class="note">Bu sayfalar sadece deneme. Formlar gerçek çalışır, deneme için doldurmana gerek yok.</p>
+</main>
+</body>
+</html>

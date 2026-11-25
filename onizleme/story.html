@@ -1,0 +1,1235 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Vandivansi Story Modu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap">
+<style>
+/* Layout: navy hero with proof card, then platform switcher driving a package ladder, combos, steps, promo band, footer. Single deliberate light look. */
+:root {
+  --navy: #0E1E3A;
+  --navy-2: #172B4F;
+  --paper: #F7F5F0;
+  --white: #FFFFFF;
+  --gold: #C8A25A;
+  --gold-soft: #EADFC6;
+  --ink: #4A5468;
+  --green: #2E8B62;
+  --line: #E3DFD5;
+  --display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--navy); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+.draft { background: var(--gold-soft); color: var(--navy); font-size: 13px; text-align: center; padding-block: 6px; }
+
+.hero { background: var(--navy); color: var(--paper); margin-top: calc(-1 * env(safe-area-inset-top, 0px)); padding-top: env(safe-area-inset-top, 0px); }
+.nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.mark { width: 40px; height: 40px; border: 1.5px solid var(--gold); border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-weight: 500; color: var(--gold); font-size: 18px; }
+.word { display: flex; flex-direction: column; line-height: 1.1; }
+.word b { font-family: var(--display); font-weight: 600; letter-spacing: 0.16em; font-size: 15px; color: var(--paper); }
+.word small { font-size: 10px; letter-spacing: 0.5em; color: var(--gold); margin-top: 3px; }
+.links { display: flex; gap: 24px; align-items: center; font-size: 14px; flex-wrap: wrap; }
+.links a { text-decoration: none; opacity: 0.85; }
+.btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 20px; font-weight: 500; font-size: 15px; text-decoration: none; border: 1.5px solid transparent; }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-ghost { border-color: rgba(247,245,240,0.35); color: var(--paper); }
+.btn-navy { background: var(--navy); color: var(--paper); width: 100%; justify-content: center; }
+
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; padding-block: 64px 96px; }
+.eyebrow { font-size: 14px; letter-spacing: 0.01em; color: var(--gold); margin-bottom: 16px; }
+h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.hero h1 { font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -0.02em; color: var(--paper); }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.lead { margin-top: 24px; font-size: 18px; line-height: 1.6; color: #C9CFDA; max-width: 36rem; }
+.device-wrap { position: relative; margin: 0; justify-self: center; width: 100%; max-width: 420px; padding: 0 0 40px 48px; }
+.phone { background: #070E1D; border-radius: 40px; padding: 12px; box-shadow: 0 24px 48px rgba(0,0,0,0.35); border: 1px solid rgba(247,245,240,0.12); }
+.ph-screen { background: var(--white); color: #111827; border-radius: 28px; padding: 16px 16px 12px; display: grid; gap: 8px; }
+.ph-top { display: flex; justify-content: space-between; align-items: center; font-size: 15px; }
+.ph-dots { display: flex; gap: 3px; } .ph-dots i { width: 4px; height: 4px; border-radius: 50%; background: #111827; }
+.ph-prof { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; margin-top: 4px; }
+.ph-av { width: 64px; height: 64px; border-radius: 50%; background: #3A2A22; color: #F1E6D2; display: grid; place-items: center; font-family: var(--serif); font-size: 28px; box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8A25A; }
+.ph-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; }
+.ph-stats b { display: block; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.ph-stats span { font-size: 12px; color: #4B5565; }
+.ph-name { font-size: 13px; font-weight: 600; }
+.ph-bio { font-size: 12px; color: #4B5565; margin-top: -6px; }
+.ph-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; margin: 4px -16px 0; }
+.ph-grid .t { aspect-ratio: 1 / 1; display: grid; place-items: end start; padding: 8px; }
+.ph-grid .t span { font-family: var(--serif); font-size: 13px; line-height: 1.1; }
+.t.esp { background: #3A2A22; color: #F1E6D2; } .t.cream { background: #F1E6D2; color: #3A2A22; } .t.sage { background: #7E9A82; color: #FBF8F1; }
+.insight { position: absolute; left: 0; bottom: 64px; width: 248px; background: var(--white); color: var(--navy); border-radius: 16px; padding: 16px 16px 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+.in-label { font-size: 12px; color: var(--ink); }
+.in-num { font-family: var(--display); font-size: 28px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 4px; }
+.in-up { font-size: 12px; color: var(--green); }
+.in-chart { width: 100%; height: 64px; margin-top: 8px; display: block; }
+.device-note { position: absolute; right: 0; bottom: 0; font-size: 12px; color: #8A93A6; }
+.intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.intro-text { display: grid; gap: 12px; max-width: 32rem; }
+.intro-text h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+.intro-text p:not(.kicker) { color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-grid > * { animation: rise 0.5s var(--ease) both; }
+  .hero-grid > *:nth-child(2) { animation-delay: 60ms; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+.cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+
+.proof { background: var(--navy-2); border: 1px solid rgba(200,162,90,0.45); border-radius: 16px; padding: 24px; }
+.proof-head { display: flex; align-items: center; gap: 14px; }
+.avatar { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--gold); display: grid; place-items: center; font-family: var(--display); color: var(--gold); font-size: 22px; }
+.handle { font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.tick { width: 16px; height: 16px; border-radius: 50%; background: #3897F0; display: inline-grid; place-items: center; }
+.tick svg { width: 10px; height: 10px; }
+.proof-stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-top: 20px; }
+.stat { background: rgba(247,245,240,0.06); border-radius: 10px; padding: 12px; }
+.stat b { display: block; font-family: var(--display); font-size: 20px; color: var(--paper); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: #AEB6C5; }
+.proof-note { margin-top: 18px; font-size: 14px; color: #C9CFDA; border-top: 1px solid rgba(247,245,240,0.12); padding-top: 14px; }
+
+section { padding-block: 96px; }
+.faq-grid, .quote-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.faq { display: grid; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 32px 20px 0; position: relative; font-size: 17px; font-weight: 500; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; position: absolute; right: 4px; top: 26px; width: 8px; height: 8px; border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); transform: rotate(45deg); transition: transform 160ms var(--ease); }
+.faq details[open] summary::after { transform: rotate(-135deg); top: 30px; }
+.faq details p { padding: 0 32px 20px 0; color: var(--ink); max-width: 60ch; }
+.quote-points { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+.quote-points li { display: flex; gap: 10px; align-items: center; }
+.quote-points li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.qform { background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 16px; }
+.qform label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; }
+.qform input, .qform select, .qform textarea { font: inherit; font-size: 15px; font-weight: 400; color: var(--navy); background: var(--white); border: 1px solid #D9D4C8; border-radius: 10px; padding: 10px 12px; width: 100%; min-width: 0; }
+.qform textarea { resize: vertical; }
+.qform input:focus, .qform select:focus, .qform textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+.qform input[aria-invalid="true"] { border-color: #C2413A; }
+.row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.qform .btn-navy { width: auto; justify-self: start; padding-inline: 24px; }
+.qerr { color: #B3332C; font-size: 14px; }
+.kvkk { font-size: 13px; color: var(--ink); }
+.stats-band { background: var(--navy); color: var(--paper); border-top: 1px solid rgba(247,245,240,0.1); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding-block: 40px; }
+.stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(36px, 4.4vw, 56px); line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
+.stats span { display: block; margin-top: 8px; font-size: 14px; color: #C9CFDA; max-width: 18em; }
+.karne-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.karne { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; }
+.kq { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; counter-reset: k; }
+.kq li { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; counter-increment: k; }
+.kq li::before { content: counter(k) "."; position: absolute; opacity: 0; }
+.kq .yn { display: inline-flex; border: 1px solid #D9D4C8; border-radius: 8px; overflow: hidden; }
+.kq .yn button { font: inherit; font-size: 13px; padding: 6px 12px; border: 0; background: var(--white); color: var(--navy); cursor: pointer; transition: background-color 120ms var(--ease); }
+.kq .yn button + button { border-left: 1px solid #D9D4C8; }
+.kq .yn button[aria-pressed="true"].y { background: #E3F1EA; color: #1F4D38; }
+.kq .yn button[aria-pressed="true"].n { background: #F6E3E1; color: #8A2A24; }
+.kres { background: var(--paper); border-radius: 12px; padding: 20px; display: grid; gap: 12px; align-content: start; position: sticky; top: 16px; }
+.kscore b { font-family: var(--serif); font-weight: 400; font-size: 64px; line-height: 1; font-variant-numeric: tabular-nums; }
+.kscore span { font-size: 18px; color: var(--ink); }
+.kbar { height: 8px; background: #E7E2D8; border-radius: 4px; overflow: hidden; }
+.kbar span { display: block; height: 100%; width: 0; background: var(--gold); transition: width 400ms var(--ease); }
+.kgrade { font-weight: 500; }
+.ktips { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 13px; color: var(--ink); }
+.ktips li { padding-left: 14px; position: relative; }
+.ktips li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.ideas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.idea { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: grid; gap: 12px; align-content: start; }
+.idea .fmt { font-size: 12px; color: #8A6A2E; font-weight: 500; }
+.idea h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.15; }
+.idea .what { font-size: 14px; color: var(--ink); }
+.idea .hook { font-family: var(--serif); font-size: 21px; line-height: 1.25; color: var(--navy); border-left: 2px solid var(--gold); border-radius: 0; padding-left: 12px; }
+.idea .hook span, .idea .icap span { display: block; font-family: var(--body); font-size: 12px; color: #8A6A2E; font-weight: 500; margin-bottom: 4px; }
+.idea .why { font-size: 13px; color: var(--ink); }
+.idea .why b { color: var(--navy); font-weight: 500; }
+.idea .icap { font-size: 14px; background: var(--paper); border-radius: 10px; padding: 12px; white-space: pre-line; }
+.idea .when { font-size: 13px; color: var(--navy); display: flex; gap: 8px; align-items: center; }
+.idea .when::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.ideas-note { margin-top: 16px; font-size: 14px; color: var(--ink); }
+.rv { opacity: 0; transform: translateY(12px); transition: opacity 500ms var(--ease), transform 500ms var(--ease); }
+.rv.in { opacity: 1; transform: none; }
+.hero h1 .w { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1 .w { opacity: 0; transform: translateY(10px); animation: wordIn 500ms var(--ease) forwards; }
+  @keyframes wordIn { to { opacity: 1; transform: none; } }
+}
+@media (max-width: 960px) { .karne { grid-template-columns: minmax(0, 1fr); } .kres { position: static; } .ideas { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 820px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .karne-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+.dm-float { position: fixed; z-index: 30; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: var(--paper); text-decoration: none; font-size: 14px; font-weight: 500; padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(200,162,90,0.6); box-shadow: 0 8px 24px rgba(14,30,58,0.25); transition: background-color 160ms var(--ease); }
+.dm-float:hover { background: #172B4F; }
+.dm-float svg { color: var(--gold); }
+.dm-inline { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--navy); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
+.dm-inline svg { color: #8A6A2E; }
+@media (max-width: 480px) { .dm-float span { display: none; } .dm-float { padding: 14px; } }
+.hero-facts { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; color: var(--paper); }
+.hero-facts li { display: flex; align-items: center; gap: 8px; }
+.hero-facts li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.who { font-size: 13px; color: var(--ink); border-top: 1px solid var(--line); padding-top: 12px; }
+.who b { color: var(--navy); font-weight: 500; }
+.guide { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; margin-bottom: 24px; }
+.guide-title { font-family: var(--serif); font-size: 24px; margin-bottom: 8px; }
+.guide ul { list-style: none; padding: 0; margin: 0; display: grid; }
+.guide li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 16px; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.guide li b { font-weight: 500; }
+.guide li span { color: var(--ink); }
+.guide li a { color: #8A6A2E; font-weight: 500; text-decoration: none; white-space: nowrap; }
+.guide li a:hover { text-decoration: underline; }
+@media (max-width: 820px) { .guide li { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+.qok { background: #E3F1EA; border: 1px solid #C6E2D3; border-radius: 12px; padding: 16px; display: grid; gap: 4px; color: #1F4D38; outline: none; }
+.qok-title { font-family: var(--serif); font-size: 24px; color: #1F4D38; }
+.qform button[disabled] { opacity: 0.6; cursor: progress; }
+.qdone { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 14px; color: var(--ink); }
+.qdone pre { white-space: pre-wrap; font-family: var(--body); font-size: 13px; background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin: 0; color: var(--navy); }
+.btn-ghost-dark { border: 1px solid #D9D4C8; color: var(--navy); background: var(--white); justify-self: start; cursor: pointer; }
+.menu-btn { display: none; background: transparent; border: 1px solid rgba(247,245,240,0.3); color: var(--paper); border-radius: 10px; padding: 8px 14px; font-size: 14px; cursor: pointer; }
+@media (max-width: 820px) {
+  .faq-grid, .quote-grid, .row2 { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .menu-btn { display: inline-flex; }
+  .links.open { position: absolute; left: 0; right: 0; top: 72px; z-index: 20; background: var(--navy); flex-direction: column; align-items: stretch; gap: 0; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid rgba(247,245,240,0.12); }
+  .links.open a { display: block !important; padding: 12px 0; border-bottom: 1px solid rgba(247,245,240,0.08); opacity: 1; }
+  .links.open a.btn { margin-top: 12px; text-align: center; justify-content: center; border-bottom: 0; }
+}
+.sec-head h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.1; }
+section.alt { background: var(--white); border-block: 1px solid var(--line); }
+section.alt .card { background: var(--paper); }
+section.alt .diff { background: var(--white); }
+.sec-head { max-width: 640px; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(26px, 3.4vw, 36px); }
+.sec-head p { margin-top: 10px; color: var(--ink); }
+.kicker { font-size: 14px; letter-spacing: 0.01em; color: #8A6A2E; margin-bottom: 8px; font-weight: 500; }
+
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.tab { border: 1.5px solid var(--line); background: var(--white); color: var(--navy); border-radius: 999px; padding: 8px 16px; font-weight: 500; font-size: 15px; display: inline-flex; gap: 8px; align-items: center; }
+.tab[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--paper); }
+.tab .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+.ladder { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.card.pop { border: 2px solid var(--gold); }
+.card-top { display: flex; justify-content: space-between; align-items: center; min-height: 26px; gap: 8px; }
+.badge { font-size: 12px; background: var(--gold-soft); color: var(--navy); padding: 3px 10px; border-radius: 6px; font-weight: 500; }
+.badge.shoot { background: #E4E9F2; }
+.step { font-size: 12px; color: var(--ink); }
+.card h3 { font-size: 22px; }
+.price { font-family: var(--display); font-size: 32px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.price small { font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink); }
+.feat { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14px; color: var(--ink); flex: 1; }
+.feat li { display: flex; gap: 8px; align-items: flex-start; }
+.feat svg { flex: none; width: 16px; height: 16px; margin-top: 3px; color: var(--green); }
+.diff { font-size: 13px; background: var(--paper); border-radius: 8px; padding: 10px 12px; color: var(--navy); }
+.diff b { color: var(--green); }
+
+.combos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.combo { background: var(--white); color: var(--navy); border: 1px solid var(--line); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.combo h3 { font-family: var(--display); font-size: 19px; font-weight: 500; }
+.combo .inc { font-size: 14px; color: var(--ink); flex: 1; }
+.combo .was { font-size: 14px; color: #8A93A6; text-decoration: line-through; font-variant-numeric: tabular-nums; }
+.combo .now { font-family: var(--display); font-size: 28px; font-weight: 500; color: var(--navy); font-variant-numeric: tabular-nums; }
+.save { font-size: 12px; background: #E3F1EA; color: #1F6B4A; border-radius: 6px; padding: 4px 8px; align-self: flex-start; }
+.mix { margin-top: 20px; display: flex; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--ink); }
+.mix span { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; }
+.mix b { color: var(--navy); }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px; counter-reset: s; }
+.steps li { list-style: none; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.steps li::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--gold); color: #9A7A3A; font-family: var(--display); font-weight: 500; margin-bottom: 16px; }
+.steps h3 { font-size: 17px; margin-bottom: 6px; }
+.steps p { font-size: 14px; color: var(--ink); }
+.steps ol { padding: 0; margin: 0; }
+
+.band { background: var(--gold-soft); }
+.band-in { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; padding-block: 56px; }
+.band h2 { font-size: clamp(24px, 3vw, 32px); }
+.band p { margin-top: 10px; color: var(--ink); }
+.promo { display: grid; gap: 10px; }
+.promo div { background: var(--white); border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
+.promo b { font-family: var(--display); font-variant-numeric: tabular-nums; }
+
+footer { background: var(--navy); color: #C9CFDA; }
+.foot { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding-block: 48px; font-size: 14px; }
+.foot h3 { color: var(--paper); font-size: 16px; margin-bottom: 8px; }
+.mail { font-family: var(--display); color: var(--gold); font-size: 16px; user-select: all; }
+
+.about { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: 48px; align-items: start; }
+.about-card { background: var(--navy); color: var(--paper); border-radius: 18px; padding: 28px; display: grid; gap: 24px; border: 1px solid rgba(200,162,90,0.45); }
+.about-mark { display: flex; gap: 16px; align-items: center; }
+.about-name { font-family: var(--display); font-weight: 500; font-size: 20px; color: var(--paper); }
+.about-role { font-size: 13px; color: var(--gold); }
+.about-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.about-stats div { background: rgba(247,245,240,0.06); border-radius: 12px; padding: 14px; }
+.about-stats b { display: block; font-family: var(--display); font-size: 24px; color: var(--gold); font-variant-numeric: tabular-nums; }
+.about-stats span { font-size: 12px; color: #C9CFDA; }
+.about-text { display: grid; gap: 16px; max-width: 640px; }
+.about-text h2 { font-size: clamp(26px, 3.4vw, 36px); }
+.about-text > p { color: var(--ink); }
+.skills { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.skills li { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 4px; }
+.skills b { font-family: var(--display); font-size: 15px; }
+.skills span { font-size: 13px; color: var(--ink); }
+.sign { font-family: var(--display); color: #9A7A3A; font-weight: 500; }
+.lead-dark { font-size: 19px; line-height: 1.55; color: var(--navy) !important; font-weight: 500; }
+.about-h3 { font-size: 18px; margin-top: 18px; }
+.journey { list-style: none; padding: 0 0 0 20px; margin: 0; display: grid; gap: 16px; border-left: 2px solid var(--gold); }
+.journey li { position: relative; display: grid; gap: 2px; }
+.journey li::before { content: ""; position: absolute; left: -25px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--gold); }
+.journey li:last-child::before { background: var(--gold); }
+.journey b { font-family: var(--display); font-size: 15px; }
+.journey span { font-size: 14px; color: var(--ink); }
+.principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.principles li { border-top: 2px solid var(--gold); padding-top: 10px; display: grid; gap: 4px; }
+.principles b { font-family: var(--display); font-size: 16px; }
+.principles span { font-size: 13px; color: var(--ink); }
+.about-quote { margin: 8px 0 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--gold); border-radius: 0; color: var(--navy); font-family: var(--serif); font-size: 26px; line-height: 1.3; }
+@media (max-width: 820px) { .principles { grid-template-columns: minmax(0, 1fr); } }
+.about-card { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); }
+@media (max-width: 820px) { .about-card { position: static; } }
+@media (max-width: 820px) { .about, .skills { grid-template-columns: minmax(0, 1fr); gap: 24px; } }
+.proofline { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-top: 28px; font-size: 14px; color: #AEB6C5; }
+.proofline b { color: var(--paper); font-family: var(--display); }
+.iglink { color: var(--paper); text-decoration: none; border-bottom: 1px solid rgba(200,162,90,0.6); padding-bottom: 2px; }
+.iglink:hover { color: var(--gold); border-color: var(--gold); }
+.iglink .ext { opacity: 0.7; }
+.clips { position: absolute; inset: 0 0 58px 0; background: #0B1730; }
+.clip { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.35s ease; }
+.clip.on { opacity: 1; }
+.endcard { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: rgba(14,30,58,0.82); opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+.endcard.on { opacity: 1; }
+.stage { position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 440px; justify-self: end; background: var(--navy-2); border: 1px solid rgba(200,162,90,0.45); border-radius: 18px; overflow: hidden; }
+.scenes { position: absolute; left: 6%; right: 6%; top: 4%; height: 40%; }
+.sc { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; text-align: center; }
+.sc.on { opacity: 1; transform: none; }
+.big { font-family: var(--display); font-weight: 500; font-size: clamp(36px, 7vw, 56px); color: var(--paper); line-height: 1; }
+.num { color: var(--gold); font-variant-numeric: tabular-nums; }
+.sub { font-size: 15px; color: #C9CFDA; display: flex; align-items: center; gap: 6px; }
+.chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.chip { background: rgba(247,245,240,0.08); border: 1px solid rgba(247,245,240,0.16); color: var(--paper); border-radius: 10px; padding: 10px 14px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.chip i { width: 10px; height: 10px; border-radius: 50%; }
+.viz { width: 78%; max-height: 120px; }
+.qr { width: 120px; height: 120px; background: var(--paper); border-radius: 8px; padding: 6px; }
+.browser { width: 78%; background: var(--paper); border-radius: 10px; overflow: hidden; }
+.bar3 { background: #E3DFD5; padding: 7px 10px; display: flex; gap: 5px; }
+.bar3 i { width: 8px; height: 8px; border-radius: 50%; background: #B9B4A8; }
+.bbody { padding: 14px; display: grid; gap: 8px; justify-items: start; }
+.bbody .l1 { width: 70%; height: 10px; border-radius: 4px; background: var(--navy); }
+.bbody .l2 { width: 90%; height: 7px; border-radius: 4px; background: #D6D2C8; }
+.bbody .cta { background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 6px; }
+.mark.lg { width: 64px; height: 64px; font-size: 28px; }
+.logo-t { font-family: var(--display); font-weight: 600; letter-spacing: 0.24em; color: var(--paper); font-size: 20px; }
+.logo-m { font-size: 11px; letter-spacing: 0.6em; color: var(--gold); }
+.char { position: absolute; left: 2%; bottom: 58px; width: 44%; transform-origin: 50% 100%; }
+#arm { transform-box: fill-box; transform-origin: 0% 100%; opacity: 0; transition: opacity 0.3s; }
+#eyes { transform-box: fill-box; transform-origin: 50% 50%; }
+.cap { position: absolute; left: 0; right: 0; bottom: 0; min-height: 58px; padding: 10px 16px 14px; background: var(--navy); color: var(--paper); font-size: 14px; line-height: 1.4; display: flex; align-items: center; border-top: 1px solid rgba(200,162,90,0.35); }
+.prog { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(247,245,240,0.1); }
+.prog span { display: block; height: 100%; width: 0; background: var(--gold); }
+.playbtn { position: absolute; right: 14px; bottom: 74px; display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy); border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 600; font-size: 14px; }
+.stage.playing .playbtn { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .sc.on .chip { animation: pop 0.45s both; }
+  .sc.on .chip:nth-child(2) { animation-delay: 0.25s; } .sc.on .chip:nth-child(3) { animation-delay: 0.5s; } .sc.on .chip:nth-child(4) { animation-delay: 0.75s; }
+  .sc.on .bar { animation: grow 0.8s both; transform-box: fill-box; transform-origin: 50% 100%; }
+  .sc.on .bar:nth-child(2) { animation-delay: 0.2s; } .sc.on .bar:nth-child(3) { animation-delay: 0.4s; }
+  .wave #arm { animation: wave 0.6s ease-in-out infinite alternate; }
+}
+.wave #arm { opacity: 1; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+@keyframes pop { from { opacity: 0; transform: scale(0.7); } }
+@keyframes grow { from { transform: scaleY(0); } }
+@keyframes dash { to { stroke-dashoffset: -20; } }
+@keyframes pulse { 50% { transform: scale(1.08); } }
+@keyframes wave { from { transform: rotate(-8deg); } to { transform: rotate(14deg); } }
+@media (max-width: 820px) {
+  .stage { justify-self: center; }
+  .intro-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .device-wrap { padding-left: 24px; max-width: 360px; }
+  .insight { width: 200px; bottom: 56px; }
+  .in-num { font-size: 24px; }
+  .hero-grid, .band-in { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .links a { display: none; }
+  section { padding-block: 56px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card, .tab { transition: transform 0.15s ease, border-color 0.15s ease; }
+  .card:hover { border-color: #D3CDBF; }
+}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Varyasyon 3 · Story Modu: Instagram'ın içinden çıkmış gibi; story çubukları, yapışkan etiketler, mercan vurgu, yuvarlak kartlar */
+:root {
+  --navy: #1B1A1F; --navy-2: #2A2830; --paper: #FFF8F1; --white: #FFFFFF;
+  --gold: #FF5A3C; --gold-soft: #FFE1D9; --ink: #5B5762; --line: #EFE4DA; --green: #1E9E6A;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --serif: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+body { background: var(--paper); color: var(--navy); }
+h1, h2 { font-weight: 600; letter-spacing: -0.03em; }
+.hero { background: var(--paper); color: var(--navy); position: relative; }
+.hero::before {
+  content: ""; display: block; height: 3px; margin: 12px max(16px, env(safe-area-inset-left, 0px)) 0;
+  background: repeating-linear-gradient(90deg, rgba(27,26,31,0.85) 0 calc(25% - 6px), transparent calc(25% - 6px) 25%);
+  border-radius: 2px;
+}
+.hero h1 { color: var(--navy); font-size: clamp(44px, 6vw, 80px); line-height: 1; }
+.hero .lead, .proofline { color: var(--ink); }
+.hero-facts, .proofline b, .iglink, .links a, .word b { color: var(--navy); }
+.links a { opacity: 1; }
+.btn-ghost, .menu-btn { border-color: var(--navy); color: var(--navy); border-radius: 999px; }
+.links.open { background: var(--paper); }
+footer .iglink, footer .word b { color: #F7F5F0; }
+.btn { border-radius: 999px; }
+.btn-gold, .btn-navy { background: var(--gold); color: #fff; }
+.mark { color: var(--gold); border-color: var(--gold); }
+.eyebrow { color: var(--gold); font-weight: 600; }
+.kicker { display: inline-block; justify-self: start; width: fit-content; background: #FFC738; color: var(--navy); padding: 4px 12px; border-radius: 999px; transform: rotate(-2deg); font-weight: 600; }
+.stats-band { background: var(--gold); border: 0; }
+.stats b { color: #fff; font-weight: 600; }
+.stats span { color: #FFE9E3; }
+.card, .combo, .guide, .idea, .karne, .qform, .steps li, .skills li { border-radius: 24px; background: var(--white); border-color: var(--line); }
+.card.pop { border: 2px solid var(--gold); }
+.badge { background: #C9B8FF; color: #241B4A; border-radius: 999px; transform: rotate(-3deg); font-weight: 600; }
+.badge.shoot { background: #FFC738; color: var(--navy); }
+.tab { border-radius: 999px; }
+.tab[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); }
+.tab .dot { background: var(--gold); }
+.diff { background: var(--gold-soft); border-radius: 16px; }
+.diff b { color: #C2361D; }
+.price, .combo .now { font-family: var(--display); font-weight: 600; }
+.band { background: #C9B8FF; }
+.band h2 { color: #241B4A; }
+.promo div { border-radius: 16px; }
+.about-card { background: var(--navy); border-radius: 28px; }
+.about-quote { border-left-color: var(--gold); font-weight: 600; }
+.stage { border-radius: 28px; border-color: var(--navy); }
+.idea .hook { border-left: 0; padding: 12px 16px; background: var(--navy); color: #fff; border-radius: 16px; font-family: var(--display); font-weight: 600; font-size: 18px; }
+.idea .hook span { color: #FFC738; }
+.kbar span { background: var(--gold); }
+.kscore b { font-weight: 600; }
+.save { background: #DDF5EA; color: #11603F; border-radius: 999px; }
+.dm-float { background: var(--gold); border-color: var(--gold); color: #fff; }
+.dm-float svg { color: #fff; }
+.qform input, .qform select, .qform textarea { border-radius: 14px; }
+section.alt { background: #FFF1E6; }
+
+</style>
+
+
+<div lang="tr">
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Ana menü">
+      <a class="logo" href="#paketler" aria-label="Vandivansi Media">
+        <span class="mark">V</span>
+        <span class="word"><b>VANDİVANSİ</b><small>MEDIA</small></span>
+      </a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menü</button>
+      <div class="links" id="navLinks">
+        <a href="#paketler">Paketler</a>
+        <a href="#animasyon">Animasyon</a>
+        <a href="#strateji">Strateji</a>
+        <a href="#ozel">Web ve uygulama</a>
+        <a href="#nasil">Nasıl çalışır</a>
+        <a href="#ben-kimim">Ben kimim</a>
+        <a class="btn btn-gold" href="#teklif">Teklif al</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Biz denedik, işe yarıyor</p>
+        <h1>Dükkânını, kafeni, restoranını Instagram'da büyütüyoruz</h1>
+        <p class="lead">Kendi hesabımızı 45 bin takipçiye büyüttük. Aynı yöntemle kafe, restoran, kuaför, butik, emlak ofisi, klinik ve tüm yerel işletmelerin Instagram, TikTok, YouTube ve Facebook hesaplarını yönetiyoruz. Çekimli hizmet İstanbul'da, çekimsiz hizmet tüm Türkiye'de.</p>
+        <ul class="hero-facts">
+          <li>Aylık 2.990 ₺'den başlayan paketler</li>
+          <li>Taahhüt yok</li>
+          <li>Şifreni istemiyoruz</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#paketler">Paketleri gör</a>
+          <a class="btn btn-ghost" href="#teklif">Ücretsiz ön görüşme</a>
+        </div>
+        <p class="proofline"><a class="handle iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi <span class="tick" aria-label="Onaylı hesap"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 5.2 4.2 7.2 8 3"/></svg></span><svg class="ext" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4.5 2.5h5v5M9.5 2.5 3 9"/></svg></a><span><b>45,1 B</b> takipçi</span><span>Ekibimizin kendi hesabı</span></p>
+      </div>
+
+      <div class="stage" id="stage" aria-label="Vandivansi Media tanıtım animasyonu">
+        <audio id="vo" src="tanitim.mp3" preload="auto"></audio>
+        <div class="scenes">
+          <div class="sc" data-i="0"><p class="big">Selam</p><p class="sub">Ben Vandivansi</p></div>
+          <div class="sc" data-i="1"><p class="big num"><span id="cnt">0</span></p><p class="sub">takipçi <span class="tick"><svg viewBox="0 0 10 10" fill="none" stroke="#fff" stroke-width="1.8"><path d="M2 5.2 4.2 7.2 8 3"/></svg></span></p></div>
+          <div class="sc" data-i="2"><div class="chips"><span class="chip"><i style="background:#D6297B"></i>Instagram</span><span class="chip"><i style="background:#1877F2"></i>Facebook</span><span class="chip"><i style="background:#25F4EE"></i>TikTok</span><span class="chip"><i style="background:#FF0000"></i>YouTube</span></div></div>
+          <div class="sc" data-i="3">
+            <svg class="viz" viewBox="0 0 220 110" aria-hidden="true">
+              <rect class="bar" x="14" y="62" width="22" height="40" rx="3" fill="#4A5468"/>
+              <rect class="bar" x="44" y="46" width="22" height="56" rx="3" fill="#4A5468"/>
+              <rect class="bar" x="74" y="28" width="22" height="74" rx="3" fill="#C8A25A"/>
+              <path class="road" d="M120 96 C150 96 140 60 168 60 S190 24 210 18" fill="none" stroke="#C8A25A" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 6"/>
+              <circle cx="120" cy="96" r="5" fill="#F7F5F0"/><circle cx="168" cy="60" r="5" fill="#F7F5F0"/><circle cx="210" cy="18" r="6" fill="#2E8B62"/>
+            </svg>
+            <p class="sub">Analiz · Yol haritası · Büyüme</p>
+          </div>
+          <div class="sc" data-i="5"><svg class="viz qr" id="qr" viewBox="0 0 25 25" aria-hidden="true"></svg><p class="sub">QR menü</p></div>
+          <div class="sc" data-i="6">
+            <div class="browser"><div class="bar3"><i></i><i></i><i></i></div><div class="bbody"><span class="l1"></span><span class="l2"></span><span class="cta">Fiyat al</span></div></div>
+            <p class="sub">Web sitesi</p>
+          </div>
+          <div class="sc" data-i="7"><span class="mark lg">V</span><p class="logo-t">VANDİVANSİ</p><p class="logo-m">MEDIA</p></div>
+        </div>
+        <svg class="char" viewBox="0 0 200 240" aria-hidden="true">
+          <path d="M34 240 C34 192 66 176 100 176 C134 176 166 192 166 240 Z" fill="#15171C"/>
+          <path d="M92 176 L100 190 L108 176 Z" fill="#E2B48F"/>
+          <text x="128" y="222" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#C8A25A">V</text>
+          <rect x="70" y="186" width="10" height="14" rx="3" fill="#2B2E35"/><circle cx="75" cy="191" r="1.6" fill="#8A909C"/>
+          <rect x="88" y="146" width="24" height="34" fill="#D9A983"/>
+          <ellipse cx="58" cy="108" rx="7" ry="11" fill="#D9A983"/><ellipse cx="142" cy="108" rx="7" ry="11" fill="#D9A983"/>
+          <ellipse cx="100" cy="104" rx="42" ry="50" fill="#E2B48F"/>
+          <path d="M57 98 C52 54 78 38 102 39 C128 40 148 54 143 98 C141 84 136 72 127 63 C120 58 111 60 103 66 C95 60 84 58 75 63 C66 70 60 82 57 98 Z" fill="#2A211C"/>
+          <circle cx="143" cy="120" r="3.2" fill="none" stroke="#C9CDD4" stroke-width="1.6"/>
+          <path d="M58 104 C58 152 80 170 100 170 C120 170 142 152 142 104 C137 120 130 127 120 128 C113 121 87 121 80 128 C70 127 63 120 58 104 Z" fill="#3A2A22"/>
+          <path d="M82 124 C90 117 110 117 118 124 C110 127 90 127 82 124 Z" fill="#2E211B"/>
+          <ellipse id="mouth" cx="100" cy="134" rx="9" ry="2" fill="#5A1F1F"/>
+          <path d="M72 88 C78 83 88 83 93 87" fill="none" stroke="#2A211C" stroke-width="4" stroke-linecap="round"/>
+          <path d="M107 87 C112 83 122 83 128 88" fill="none" stroke="#2A211C" stroke-width="4" stroke-linecap="round"/>
+          <g id="eyes"><circle cx="83" cy="99" r="4.2" fill="#1B1B1B"/><circle cx="117" cy="99" r="4.2" fill="#1B1B1B"/><circle cx="84.5" cy="97.5" r="1.2" fill="#fff"/><circle cx="118.5" cy="97.5" r="1.2" fill="#fff"/></g>
+          <path d="M100 102 C97 112 95 115 101 116" fill="none" stroke="#B9875F" stroke-width="2" stroke-linecap="round"/>
+          <g id="arm"><path d="M150 200 C162 182 168 166 172 146" fill="none" stroke="#15171C" stroke-width="20" stroke-linecap="round"/><circle cx="173" cy="138" r="11" fill="#E2B48F"/></g>
+        </svg>
+        <p class="cap" id="cap">Tanıtımı izlemek için oynat</p>
+        <div class="prog"><span id="prog"></span></div>
+        <button type="button" class="playbtn" id="playbtn" aria-label="Tanıtımı oynat"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><span id="playlbl">Tanıtımı izle · 27 sn</span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main>
+  <div class="stats-band">
+    <div class="wrap stats">
+      <div><b data-count="45100">45.100</b><span>takipçi, @vandivansi hesabında</span></div>
+      <div><b data-count="8">8</b><span>yıllık sosyal medya tecrübesi</span></div>
+      <div><b data-count="4">4</b><span>platform: Instagram, TikTok, YouTube, Facebook</span></div>
+      <div><b>Aynı gün</b><span>teklif ve dönüş</span></div>
+    </div>
+  </div>
+
+  <section id="karne">
+    <div class="wrap karne-grid">
+      <div class="sec-head">
+        <p class="kicker">Ücretsiz test · 1 dakika</p>
+        <h2>Instagram hesabın kaç puan alıyor?</h2>
+        <p>10 soruyu cevapla, hesabının karnesini hemen gör. Hangi eksiklerin müşteri kaybettirdiğini ve önce neyi düzeltmen gerektiğini söyleyelim.</p>
+      </div>
+      <div class="karne" id="karneBox">
+        <ol class="kq" id="kq"></ol>
+        <div class="kres" id="kres" aria-live="polite">
+          <div class="kscore"><b id="kpts">0</b><span>/100</span></div>
+          <div class="kbar"><span id="kfill"></span></div>
+          <p class="kgrade" id="kgrade">Soruları cevapladıkça puanın burada oluşacak</p>
+          <ul class="ktips" id="ktips"></ul>
+          <a class="btn btn-navy" href="#teklif" id="kcta" hidden>Ücretsiz mini analiz iste</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="paketler">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Paketler</p>
+        <h2>Önce platformunu seç, sonra paketini</h2>
+        <p>Her basamak bir öncekinden biraz daha fazla şey katıyor. Kartların altındaki "fark" satırı, bir üst pakete geçince ne kazandığını gösteriyor.</p>
+      </div>
+      <div class="guide" aria-label="Hangi paket bana uygun?">
+        <p class="guide-title">Hangi paket bana uygun?</p>
+        <ul>
+          <li><b>Bütçem kısıtlı, önce görmek istiyorum</b><span>Hesap Analizi · 1.990 ₺ tek sefer, aylık pakete geçersen ücreti düşülür</span><a href="#strateji">İncele</a></li>
+          <li><b>Esnafım, düzenli paylaşım istiyorum</b><span>Facebook Başlangıç · 2.990 ₺/ay ya da Instagram Başlangıç · 4.990 ₺/ay</span><a href="#paketler" data-pick="facebook">Facebook'a bak</a></li>
+          <li><b>Instagram'da büyümek istiyorum</b><span>Instagram Güç · 8.490 ₺/ay, en çok tercih edilen</span><a href="#paketler" data-pick="instagram">Instagram'a bak</a></li>
+          <li><b>Çekimle de uğraşmak istemiyorum</b><span>Instagram Stüdyo · 14.990 ₺/ay, çekimi biz yapıyoruz (İstanbul)</span><a href="#paketler" data-pick="instagram">Instagram'a bak</a></li>
+        </ul>
+      </div>
+      <div class="tabs" role="group" aria-label="Platform seç" id="tabs"></div>
+      <div class="ladder" id="ladder" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="kombine" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Kombine paketler</p>
+        <h2>Birden fazla platform, tek fiyat</h2>
+        <p>Tek çekim günü ve aynı tasarımlar birkaç platformda kullanılıyor. Kazancı sana indirim olarak yansıtıyoruz.</p>
+      </div>
+      <div class="combos" id="combos"></div>
+      <div class="mix">
+        <span>Kendi kombinini yap:</span>
+        <span><b>2 platform</b> %15 indirim</span>
+        <span><b>3 platform</b> %20 indirim</span>
+        <span><b>4 platform</b> %25 indirim</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="fikir">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Nasıl düşündüğümüzü gör</p>
+        <h2>İşletmen için 3 post fikri, hemen şimdi</h2>
+        <p>Sektörünü seç. Her işletmeye özel hazırladığımız içerik planından küçük bir örnek göreceksin: fikir, hazır açıklama yazısı ve en iyi paylaşım saati.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Sektör seç" id="ideaTabs"></div>
+      <div class="ideas" id="ideas" aria-live="polite"></div>
+      <p class="ideas-note">Bunlar herkese açık örnekler. Aylık paketlerde işletmene, müşterine ve rakiplerine göre her ay yeni bir plan hazırlıyoruz.</p>
+    </div>
+  </section>
+
+  <section id="animasyon" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Animasyon reklam filmleri</p>
+        <h2>İşletmene özel animasyon reklam</h2>
+        <p>Hareketli yazılar, ikonlar ve ürün fotoğraflarınla hazırlanan 2D reklam filmleri. Senaryo, müzik, altyazı ve Türkçe seslendirme bizden. Reels, TikTok ve YouTube için hazır formatlarda teslim.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Animasyon türü seç" id="animTabs"></div>
+      <div class="ladder" id="animLadder" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="strateji">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Analiz ve strateji</p>
+        <h2>Önce hesabını analiz edelim, sonra yol haritanı çizelim</h2>
+        <p>Hesabını kendin yönetmek istiyorsan ya da önce neyin eksik olduğunu görmek istiyorsan buradan başla. Tamamen online, tüm Türkiye. 30 gün içinde aylık pakete geçersen ödediğin ücretin tamamı ilk aydan düşülür.</p>
+      </div>
+      <div class="ladder" id="stratLadder"></div>
+      <div class="mix"><span><b>Birebir danışmanlık</b> · online, 1 saat · 1.490 ₺</span><span>Hesabını kendin yönetiyorsan ve takıldığın yeri sormak istiyorsan</span></div>
+    </div>
+  </section>
+
+  <section id="ozel" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Özel projeler</p>
+        <h2>İşletmene özel web sitesi ve mobil uygulama</h2>
+        <p>Her işletmenin ihtiyacı farklı, bu yüzden sabit fiyat yok. Ne istediğini anlat, 20 dakikalık ücretsiz ön görüşmeden sonra 48 saat içinde yazılı teklif gönderelim.</p>
+      </div>
+      <div class="ladder">
+        <article class="card">
+          <div class="card-top"><span class="badge">Fiyat teklifi</span><span class="step">Web</span></div>
+          <h3>Özel web sitesi</h3>
+          <ul class="feat">
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Kurumsal site, kampanya sayfası veya menü/katalog sitesi</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Telefona uyumlu, işletmenin renkleri ve logosuyla</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Google'da görünürlük ayarları, harita ve WhatsApp butonu</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Alan adı ve barındırma kurulumunda destek</span></li>
+          </ul>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
+        </article>
+        <article class="card pop">
+          <div class="card-top"><span class="badge">Fiyat teklifi</span><span class="step">Android ve iPhone</span></div>
+          <h3>Özel mobil uygulama</h3>
+          <ul class="feat">
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Sadakat kartı, sipariş, rezervasyon, randevu veya katalog</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Müşterilerine bildirim gönderme</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Google Play ve App Store'a yükleme desteği</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>İsteğe bağlı aylık bakım ve güncelleme</span></li>
+          </ul>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
+        </article>
+        <article class="card">
+          <div class="card-top"><span class="badge">Fiyat teklifi</span><span class="step">Lokanta ve kafe</span></div>
+          <h3>QR menü</h3>
+          <ul class="feat">
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Telefondan açılan, fotoğraflı dijital menü</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Masalar için basılmaya hazır QR kod tasarımı</span></li>
+            <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span>Fiyat ve ürün güncellemesi</span></li>
+          </ul>
+          <a class="btn btn-navy" href="#teklif">Fiyat al</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="nasil" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Nasıl çalışır</p>
+        <h2>Dört adımda yayındasın</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Platform ve paketini seç</h3><p>Hangi platformda büyümek istediğine göre paketini belirle.</p></li>
+        <li><h3>Ücretsiz ön görüşme</h3><p>İşletmeni, müşterini ve hedefini 20 dakikada konuşalım.</p></li>
+        <li><h3>Aylık içerik takvimi</h3><p>Her ay başında takvimi onayına gönderiyoruz. Her tasarımda 2 düzeltme hakkın var.</p></li>
+        <li><h3>Paylaşım ve rapor</h3><p>İçerikler zamanında yayında. Ay sonunda neyin işe yaradığını rapor ediyoruz.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap band-in">
+      <div>
+        <p class="kicker">Sadece bizde</p>
+        <h2>İşletmeni @vandivansi hesabında tanıtalım</h2>
+        <p>45 bin kişilik kitleye, "Benim bunu denemem lazım" formatında. Her platformun MAX paketinde ayda 1 story tanıtımı dahil. Hesabın tarzına uymayan ürünleri tanıtmıyoruz.</p>
+      </div>
+      <div class="promo">
+        <div><span>1 story</span><b>3.500 ₺</b></div>
+        <div><span>3 story serisi</span><b>8.500 ₺</b></div>
+        <div><span>1 deneme reels'i</span><b>15.000 ₺</b></div>
+      </div>
+    </div>
+  </div>
+  <section id="sss">
+    <div class="wrap faq-grid">
+      <div class="sec-head">
+        <p class="kicker">Sık sorulanlar</p>
+        <h2>Aklına takılanlar</h2>
+        <p>Burada cevabını bulamadığın bir şey varsa teklif formundan yaz, aynı gün dönüyoruz.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Sözleşme ya da uzun süreli taahhüt var mı?</summary><p>Zorunlu değil, aylık çalışıyoruz. İstersen 3, 6 veya 12 aylık taahhüt verip %10, %15 ya da %20 indirim alabilirsin.</p></details>
+        <details><summary>Instagram şifremi istiyor musunuz?</summary><p>Hayır. Meta Business Suite'te bizi "iş ortağı" olarak eklemen yeterli. Şifren sende kalır, istediğin an erişimi kapatabilirsin.</p></details>
+        <details><summary>İçerikler onayım olmadan paylaşılıyor mu?</summary><p>Hayır. Her ay başında içerik takvimini onayına gönderiyoruz. Her tasarımda 2 düzeltme hakkın var. 48 saat içinde dönüş olmazsa takvim onaylanmış sayılır.</p></details>
+        <details><summary>Çekime gelebiliyor musunuz?</summary><p>İstanbul içinde evet. Esenyurt, Beylikdüzü, Avcılar ve Büyükçekmece'de yol ücreti yok. Avrupa yakasının diğer ilçelerinde +500 ₺, Anadolu yakasında +1.000 ₺ eklenir. Çekimsiz paketler tüm Türkiye'de geçerli.</p></details>
+        <details><summary>Reklam bütçesi paketin içinde mi?</summary><p>Hayır. Reklam bütçesini kendi kartınla doğrudan Instagram'a (Meta) ödersin, para bizim üzerimizden geçmez. Biz reklamı kurar, yönetir ve raporlarız.</p></details>
+        <details><summary>Ödeme nasıl yapılıyor?</summary><p>Her ayın başında peşin. Ay ortasında başlarsan ilk ay gün hesabıyla ücretlendirilir.</p></details>
+        <details><summary>Paketimi değiştirebilir ya da bırakabilir miyim?</summary><p>Üst pakete her ay geçebilirsin. Alt pakete geçiş ya da bırakma bir sonraki ayın başından itibaren geçerli olur.</p></details>
+        <details><summary>Sonuçları nasıl göreceğim?</summary><p>Her ay sonunda kısa bir rapor gönderiyoruz: erişim, yeni takipçi, en iyi gönderi ve en iyi paylaşım saati. Bir sonraki ay ne yapacağımızı da bu rakamlara göre planlıyoruz.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="ben-kimim">
+    <div class="wrap about">
+      <aside class="about-card" aria-label="Kısaca">
+        <div class="about-mark"><span class="mark lg">V</span><div><p class="about-name">Onur Dağaçan</p><p class="about-role">Vandivansi Media kurucusu</p></div></div>
+        <div class="about-stats">
+          <div><b>2018</b><span>sosyal medyada ilk gün</span></div>
+          <div><b>8 yıl</b><span>birikim</span></div>
+          <div><b>45,1 B</b><span>@vandivansi takipçi</span></div>
+          <div><b>4</b><span>platform</span></div>
+        </div>
+      </aside>
+      <div class="about-text">
+        <p class="kicker">Ben kimim</p>
+        <h2>Merhaba, ben Onur, Vandivansi'nin arkasındaki isim</h2>
+        <p class="lead-dark">Sosyal medya benim için bir iş olmadan önce bir tutkuydu. Bugün o tutku, sekiz yılın sabrı, binlerce saatlik deneme yanılma ve yüzlerce içerikten süzülen bir ustalığa dönüştü.</p>
+        <p>2018'den beri sosyal medyanın tam merkezindeyim. Bu yolculukta pek çok hesabı sıfırdan alıp büyüttüm. Platformlar kurallarını her değiştirdiğinde ben de oradaydım: yeni algoritmayı ilk günden izledim, test ettim, neyin işe yaradığını kendi hesaplarımda kanıtladım. Hangi içeriğin neden patladığını, hangisinin neden sessizce kaybolduğunu tahminle değil, verilerle okumayı öğrendim.</p>
+        <p>Grafiklerin arkasındaki hikâyeyi görmek benim işim. Bir videonun ilk üç saniyesinde izleyicinin neden kaldığını ya da neden kaydırıp geçtiğini, bir gönderinin neden kaydedildiğini, bir hesabın neden bir anda keşfete düştüğünü sayılarla açıklayabilirim. Çünkü her platform farklı bir dil konuşur ve ben bu dillerin hepsini akıcı konuşuyorum.</p>
+        <p>YouTube otomasyonu üzerine kapsamlı eğitimler aldım. Öğrendiklerimi kendi kanallarımda uyguladım, işe yaradığını gördükten sonra aynı eğitimleri bu kez ben verdim. Kendi hesabım @vandivansi bugün mavi tikli, 45 binden fazla gerçek takipçiye sahip ve her gün büyümeye devam ediyor.</p>
+        <p>Şimdi sekiz yıllık bu birikimi kendime saklamak yerine işletmelerle paylaşma zamanı. Kendi hesabımda denediğim, ölçtüğüm ve kanıtladığım her yöntemi artık senin işletmen için kullanıyorum. Sen işine odaklan; görünür olmak, doğru kitleye ulaşmak ve büyümek benim işim.</p>
+
+        <h3 class="about-h3">Uzmanlık alanlarım</h3>
+        <ul class="skills">
+          <li><b>İstatistik okuma</b><span>Her platformun grafiklerini doğru yorumlamak: erişim, izlenme süresi, izleyici tutma, kaydetme ve paylaşım oranları.</span></li>
+          <li><b>Algoritma bilgisi</b><span>Instagram, TikTok, YouTube ve Facebook'un hangi içeriği, hangi saatte, kime öne çıkardığını bilmek.</span></li>
+          <li><b>Etkileşim mühendisliği</b><span>İzleyiciyi ilk saniyede yakalayan kanca, merak uyandıran başlık ve yorum yazdıran kapanış.</span></li>
+          <li><b>YouTube otomasyonu</b><span>Kanal büyütme stratejileri ve üretimi hızlandıran, zamandan kazandıran iş akışları.</span></li>
+          <li><b>İçerik stratejisi</b><span>Rastgele paylaşım değil; hedefi, takvimi ve ölçümü belli bir yol haritası.</span></li>
+          <li><b>Hesap büyütme</b><span>Sıfırdan başlayan ya da yerinde sayan hesapları yeniden hareketlendirmek.</span></li>
+        </ul>
+
+        <h3 class="about-h3">Yolculuğum</h3>
+        <ol class="journey">
+          <li><b>2018 · İlk adım</b><span>Sosyal medyaya içerik üreticisi olarak girdim, ilk hesaplarımı büyütmeye başladım.</span></li>
+          <li><b>Algoritmanın peşinde</b><span>Her platform güncellemesini takip ettim, farklı hesaplarda yüzlerce deneme yaptım.</span></li>
+          <li><b>Öğrenmek ve öğretmek</b><span>YouTube otomasyonu üzerine eğitimler aldım, ardından bu eğitimleri ben verdim.</span></li>
+          <li><b>@vandivansi</b><span>Ürün deneme videoları ve "Çoğunluk Kararı" dizisiyle mavi tikli, 45 binden fazla takipçili bir hesap.</span></li>
+          <li><b>Bugün · Vandivansi Media</b><span>Sekiz yılın birikimini işletmelerin hizmetine sunuyorum.</span></li>
+        </ol>
+
+        <h3 class="about-h3">Çalışma ilkelerim</h3>
+        <ul class="principles">
+          <li><b>Önce dene</b><span>Sana önerdiğim her yöntemi önce kendi hesabımda denerim.</span></li>
+          <li><b>Sonra ölç</b><span>Tahmine değil, veriye bakarım. Her ay neyin işe yaradığını rakamlarla gösteririm.</span></li>
+          <li><b>Sonra büyüt</b><span>İşe yarayanı büyütür, yaramayanı hemen bırakırım. Bütçen boşa gitmez.</span></li>
+          <li><b>Şeffaf ol</b><span>Sahte takipçi yok, abartılı vaat yok. Gerçek insanlar, gerçek etkileşim.</span></li>
+        </ul>
+
+        <blockquote class="about-quote">“Sosyal medyada şans diye bir şey yok. Doğru içerik, doğru zaman ve doğru okuma var. Ben sekiz yıldır bunu okuyorum.”</blockquote>
+        <p class="sign">“Biz denedik, işe yarıyor.” — Onur Dağaçan</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="teklif" class="alt">
+    <div class="wrap quote-grid">
+      <div class="sec-head">
+        <p class="kicker">Teklif al</p>
+        <h2>İşletmeni anlat, aynı gün dönelim</h2>
+        <p>Formu doldur, "Gönder"e bas. Mesajın doğrudan bize ulaşır, aynı gün dönüyoruz. İlk görüşme ücretsiz ve 20 dakika.</p>
+        <a class="dm-inline" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Form doldurmak istemezsen Instagram'dan yaz</a>
+        <ul class="quote-points">
+          <li>Ücretsiz mini hesap analizi</li>
+          <li>İlk 3 müşteriye %30 indirim</li>
+          <li>Taahhüt zorunlu değil</li>
+        </ul>
+      </div>
+      <form class="qform" id="qform" novalidate>
+        <div class="row2">
+          <label for="q-name">Adın soyadın<input id="q-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="q-biz">İşletmenin adı<input id="q-biz" name="biz" type="text" autocomplete="organization" required></label>
+        </div>
+        <div class="row2">
+          <label for="q-type">İşletme türü
+            <select id="q-type" name="type">
+              <option>Kafe veya restoran</option><option>Kuaför, berber veya güzellik</option><option>Butik veya mağaza</option><option>Emlak veya oto galeri</option><option>Klinik veya sağlık</option><option>Diğer</option>
+            </select>
+          </label>
+          <label for="q-area">İlçe veya şehir<input id="q-area" name="area" type="text" placeholder="Esenyurt"></label>
+        </div>
+        <div class="row2">
+          <label for="q-ig">Instagram hesabın<input id="q-ig" name="ig" type="text" placeholder="@isletmen"></label>
+          <label for="q-phone">Telefon (isteğe bağlı)<input id="q-phone" name="phone" type="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+        </div>
+        <label for="q-pkg">İlgilendiğin paket veya hizmet<input id="q-pkg" name="pkg" type="text" placeholder="Instagram Güç"></label>
+        <label for="q-msg">Eklemek istediğin bir şey<textarea id="q-msg" name="msg" rows="3" placeholder="Örneğin: Yeni açıldık, hafta sonu daha çok müşteri istiyoruz"></textarea></label>
+        <p class="qerr" id="qerr" hidden>Adını ve işletmenin adını yazar mısın?</p>
+        <p class="kvkk">Bilgilerin yalnızca sana teklif hazırlamak ve dönüş yapmak için kullanılır, reklam ya da pazarlama amacıyla kimseyle paylaşılmaz.</p>
+        <button type="submit" class="btn btn-navy">Gönder</button>
+        <div class="qok" id="qok" tabindex="-1" hidden>
+          <p class="qok-title">Mesajın ulaştı</p>
+          <p>Teşekkürler. Aynı gün içinde sana dönüyoruz. Acelen varsa Instagram'dan <b>@vandivansi</b>'ye de yazabilirsin.</p>
+        </div>
+        <div class="qdone" id="qdone" hidden>
+          <p>Mesaj şu an gönderilemedi. Aşağıdaki metni kopyalayıp <b>onurdagacan@outlook.com</b> adresine ya da Instagram'dan <b>@vandivansi</b>'ye gönderebilirsin.</p>
+          <pre id="qtext"></pre>
+          <button type="button" class="btn btn-ghost-dark" id="qcopy">Metni kopyala</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+<a class="dm-float" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener" aria-label="Instagram'dan mesaj gönder"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram'dan yaz</span></a>
+
+<footer id="iletisim">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#paketler" aria-label="Vandivansi Media">
+        <span class="mark">V</span>
+        <span class="word"><b>VANDİVANSİ</b><small>MEDIA</small></span>
+      </a>
+      <p style="margin-top:14px;max-width:30em;">Çekimli hizmet İstanbul içinde. Esenyurt, Beylikdüzü, Avcılar ve Büyükçekmece'ye yol ücreti yok. Uzaktan hizmet tüm Türkiye'de.</p>
+    </div>
+    <div>
+      <h3>Teklif ve iletişim</h3>
+      <p class="mail">vandivansimedia@gmail.com</p>
+      <p style="margin-top:6px;">Instagram: <a class="iglink" href="https://www.instagram.com/vandivansi/" target="_blank" rel="noopener">@vandivansi</a> · <a class="iglink" href="https://ig.me/m/vandivansi" target="_blank" rel="noopener">mesaj gönder</a></p>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+const fmt = n => n.toLocaleString("tr-TR") + " ₺";
+const P = {
+  instagram: { name: "Instagram", items: [
+    ["Başlangıç", 4990, ["8 post tasarımı", "8 story", "Açıklama yazısı ve hashtag", "Planlama ve paylaşım", "İlk ay mini hesap analizi"], ""],
+    ["Gelişim", 6490, ["8 post, 8 story", "2 reels kurgusu", "Hesap analizi raporu", "Paylaşım saati ve hashtag stratejisi"], "2 reels ve hesap analizi"],
+    ["Güç", 8490, ["12 post, 12 story", "4 reels kurgusu", "Hesap ve rakip analizi", "3 aylık sosyal medya yol haritası", "Profil düzenleme, aylık rapor"], "+4 post, +2 reels, rakip analizi ve yol haritası"],
+    ["Pro", 10990, ["12 post, 15 story", "6 reels kurgusu", "Hedef kitle analizi", "3 aylık yol haritası", "Yorum ve DM yanıtlama"], "+2 reels, hedef kitle analizi ve mesaj yönetimi"],
+    ["Stüdyo", 14990, ["Pro'daki her şey", "Çekimi biz yapıyoruz", "Ayda 3 saat çekim", "6 çekimli reels"], "çekimi biz yapıyoruz", true],
+    ["MAX", 19990, ["16 post, 20 story", "8 çekimli reels, yarım gün çekim", "6 aylık yol haritası", "Aylık strateji görüşmesi", "Reklam yönetimi", "@vandivansi'de 1 story"], "6 aylık yol haritası, reklam ve @vandivansi tanıtımı", true]
+  ]},
+  facebook: { name: "Facebook", items: [
+    ["Başlangıç", 2990, ["8 post tasarımı", "Açıklama yazısı", "Planlama ve paylaşım", "İlk ay mini hesap analizi"], ""],
+    ["Gelişim", 4490, ["8 post, 8 story", "2 video kurgusu", "Hesap analizi raporu", "Paylaşım saati ve hashtag stratejisi"], "8 story, 2 video ve hesap analizi"],
+    ["Güç", 5990, ["12 post, 12 story", "4 video kurgusu", "Hesap ve rakip analizi", "3 aylık yol haritası", "Mesajlara yanıt, aylık rapor"], "+4 post, +2 video, rakip analizi ve yol haritası"],
+    ["Pro", 7490, ["Güç'teki her şey", "Hedef kitle analizi", "Ayda 12 yerel grup ve Marketplace paylaşımı"], "hedef kitle analizi ve yerel grup paylaşımları"],
+    ["MAX", 9990, ["16 post, 15 story, 6 video", "Ayda 20 grup ve Marketplace paylaşımı", "6 aylık yol haritası", "Aylık strateji görüşmesi", "Reklam yönetimi", "@vandivansi'de 1 story"], "6 aylık yol haritası ve reklam yönetimi"]
+  ]},
+  youtube: { name: "YouTube", items: [
+    ["Başlangıç", 3990, ["8 Shorts kurgusu", "Başlık, açıklama ve etiketler", "İlk ay mini kanal analizi"], ""],
+    ["Gelişim", 5490, ["12 Shorts kurgusu", "Kanal düzenleme", "Kanal analizi raporu", "Yayın saati ve anahtar kelime stratejisi"], "+4 Shorts, kanal düzenleme ve analiz"],
+    ["Güç", 8990, ["12 Shorts", "1 uzun video ve kapak görselleri", "Kanal ve rakip analizi", "3 aylık yol haritası", "Aylık rapor"], "uzun video, rakip analizi ve yol haritası"],
+    ["Pro", 12990, ["16 Shorts", "2 uzun video ve kapak görselleri", "Hedef kitle analizi", "Yorum yanıtlama"], "+4 Shorts, +1 uzun video ve hedef kitle analizi"],
+    ["MAX", 16990, ["Pro'daki her şey", "Çekimi biz yapıyoruz", "6 aylık yol haritası", "Aylık strateji görüşmesi", "@vandivansi'de 1 story"], "çekim ve 6 aylık yol haritası", true]
+  ]},
+  tiktok: { name: "TikTok", items: [
+    ["Başlangıç", 4990, ["8 video kurgusu", "Trend ses ve akım takibi", "Açıklama ve hashtag", "İlk ay mini hesap analizi"], ""],
+    ["Gelişim", 6490, ["12 video kurgusu", "Profil düzenleme", "Hesap analizi raporu", "Paylaşım saati ve hashtag stratejisi"], "+4 video, profil düzenleme ve analiz"],
+    ["Güç", 8490, ["16 video kurgusu", "Hesap ve rakip analizi", "3 aylık yol haritası", "Yorum yanıtlama, aylık rapor"], "+4 video, rakip analizi ve yol haritası"],
+    ["Stüdyo", 11990, ["16 çekimli video", "Ayda 3 saat çekim", "Hedef kitle analizi", "3 aylık yol haritası"], "çekimi biz yapıyoruz", true],
+    ["MAX", 16990, ["24 çekimli video, ayda 2 çekim", "6 aylık yol haritası", "Aylık strateji görüşmesi", "Reklam yönetimi", "@vandivansi'de 1 story"], "+8 video, 2. çekim günü ve reklam", true]
+  ]}
+};
+const A = {
+  tek: { name: "Tek film", unit: "", label: "Animasyon", items: [
+    ["Başlangıç", 2490, ["15 sn film", "Hazır şablonla senaryo", "Müzik ve altyazı", "Dikey format", "1 düzeltme hakkı"], ""],
+    ["Gelişim", 3990, ["30 sn film", "İşletmeye özel senaryo", "Müzik ve altyazı", "Dikey format", "1 düzeltme hakkı"], "2 kat süre ve özel senaryo"],
+    ["Güç", 5990, ["30 sn film", "Türkçe seslendirme", "Dikey, kare ve yatay format", "2 düzeltme hakkı"], "seslendirme, 3 format ve +1 düzeltme"],
+    ["Pro", 9990, ["60 sn film", "2 ses seçeneği", "Dikey, kare ve yatay format", "2 düzeltme hakkı"], "2 kat süre ve ses seçeneği"],
+    ["MAX", 14990, ["60 sn film + 3 kısa kesim", "Gerçek ürün/mekân çekimi (2 saat)", "Animasyon ve çekim bir arada", "3 düzeltme hakkı"], "gerçek çekim ve 3 kısa kesim", true]
+  ]},
+  aylik: { name: "Aylık animasyon", unit: " /ay", label: "Animasyon", items: [
+    ["Gelişim", 3990, ["Ayda 2 animasyonlu video", "15–30 sn, Türkçe seslendirme", "Dikey format", "Video başı 1.995 ₺"], ""],
+    ["Güç", 6990, ["Ayda 4 animasyonlu video", "Kampanya ve özel gün videoları", "Dikey ve kare format", "Video başı 1.748 ₺"], "2 video daha ve özel gün videoları"],
+    ["MAX", 12990, ["Ayda 8 animasyonlu video", "Kampanya ve özel gün videoları", "Dikey, kare ve yatay format", "İlk ay logo animasyonu", "Video başı 1.624 ₺"], "4 video daha, 3 format ve logo animasyonu"]
+  ]}
+};
+const S = { name: "Analiz ve strateji", unit: "", label: "", items: [
+  ["Hesap Analizi", 1990, ["Detaylı hesap analizi raporu", "Takipçi ve etkileşim incelemesi", "En iyi ve en zayıf içerikler", "Profil iyileştirme önerileri", "Paylaşım saati ve hashtag stratejisi"], ""],
+  ["Yol Haritası", 3990, ["Hesap Analizi'ndeki her şey", "3 aylık sosyal medya yol haritası", "Hedefler ve içerik türleri", "10 hazır içerik fikri"], "3 aylık yol haritası ve 10 içerik fikri"],
+  ["Strateji Paketi", 5990, ["Yol Haritası'ndaki her şey", "3 rakip analizi", "Hedef kitle analizi", "30 hazır içerik fikri", "45 dk online görüşme"], "rakip ve hedef kitle analizi, görüşme", false, true]
+]};
+const combos = [
+  ["İkili Güç", "Instagram Güç + Facebook Güç. Kafe, restoran ve kuaförler için.", 14480, 11990],
+  ["Video İkilisi", "Instagram Güç + TikTok Gelişim. Genç kitleye ulaşmak için.", 14980, 12490],
+  ["Üçlü Güç", "Instagram Güç + Facebook Güç + TikTok Gelişim.", 20970, 16990],
+  ["Dörtlü MAX", "Instagram, Facebook ve TikTok MAX + YouTube Pro, tek çekim planıyla.", 59960, 41990]
+];
+const check = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5 6.5 12 13 4.5"/></svg>';
+function cardsHTML(prefix, items, unit, who) {
+  return items.map((it, i) => {
+    const [name, price, feats, diff, shoot, star] = it;
+    const pop = star || (name === "Güç" && star !== false);
+    const prev = i > 0 ? items[i - 1][1] : 0;
+    const badge = pop ? '<span class="badge">En çok tercih edilen</span>' : shoot ? '<span class="badge shoot">Çekimli · İstanbul</span>' : "<span></span>";
+    const d = i > 0 ? `<p class="diff"><b>+${fmt(price - prev)}</b> ile ${diff}</p>` : `<p class="diff">Başlamak için en kolay basamak</p>`;
+    return `<article class="card${pop ? " pop" : ""}">
+      <div class="card-top">${badge}<span class="step">${i + 1}/${items.length}</span></div>
+      <h3>${(prefix + " " + name).trim()}</h3>
+      <p class="price">${fmt(price)} <small>${unit}</small></p>
+      <ul class="feat">${feats.map(f => `<li>${check}<span>${f}</span></li>`).join("")}</ul>
+      ${who ? `<p class="who"><b>İçeriği kim çekiyor?</b> ${shoot ? "Çekimi biz yapıyoruz (İstanbul içi)." : "Fotoğraf ve videoları sen telefonla çekip gönderiyorsun, düzenleme ve paylaşım bizden."}</p>` : ""}
+      ${d}
+      <a class="btn btn-navy" href="#teklif">Bu paketi seç</a>
+    </article>`;
+  }).join("");
+}
+function switcher(tabsId, ladderId, data, start, key, prefixOf, unitOf) {
+  const tabsEl = document.getElementById(tabsId), ladderEl = document.getElementById(ladderId);
+  let cur = start;
+  try { const s = localStorage.getItem(key); if (s && data[s]) cur = s; } catch (_) {}
+  function draw() {
+    tabsEl.innerHTML = Object.entries(data).map(([k, v]) =>
+      `<button type="button" class="tab" id="${tabsId}-${k}" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
+    ladderEl.innerHTML = cardsHTML(prefixOf(data[cur]), data[cur].items, unitOf(data[cur]), ladderId === "ladder");
+  }
+  tabsEl.addEventListener("click", e => {
+    const b = e.target.closest(".tab"); if (!b) return;
+    cur = b.dataset.k; draw();
+    try { localStorage.setItem(key, cur); } catch (_) {}
+  });
+  draw();
+}
+switcher("tabs", "ladder", P, "instagram", "vm-platform", g => g.name, () => "/ay");
+switcher("animTabs", "animLadder", A, "tek", "vm-anim", g => g.label, g => g.unit || "tek sefer");
+document.getElementById("stratLadder").innerHTML = cardsHTML("", S.items, "tek sefer");
+
+document.addEventListener("click", e => {
+  const a = e.target.closest("a[data-pick]"); if (!a) return;
+  const tab = document.getElementById("tabs-" + a.dataset.pick);
+  if (tab) tab.click();
+});
+
+(function nav() {
+  const btn = document.getElementById("menuBtn"), links = document.getElementById("navLinks");
+  btn.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Kapat" : "Menü";
+  });
+  links.addEventListener("click", e => {
+    if (e.target.closest("a")) { links.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); btn.textContent = "Menü"; }
+  });
+})();
+
+(function quote() {
+  const FORM_TO = "onurdagacan@outlook.com";
+  const form = document.getElementById("qform"), pkg = document.getElementById("q-pkg"), ok = document.getElementById("qok");
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href="#teklif"]');
+    if (!a) return;
+    const card = a.closest(".card");
+    const title = card && card.querySelector("h3");
+    if (title) pkg.value = title.textContent.trim();
+  });
+  const err = document.getElementById("qerr"), done = document.getElementById("qdone"), txt = document.getElementById("qtext");
+  ["q-name", "q-biz"].forEach(id => document.getElementById(id).addEventListener("input", e => { e.target.removeAttribute("aria-invalid"); err.hidden = true; }));
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = Object.fromEntries(new FormData(form).entries());
+    const missing = ["name", "biz"].filter(k => !String(f[k] || "").trim());
+    if (missing.length) {
+      missing.forEach(k => document.querySelector(`[name="${k}"]`).setAttribute("aria-invalid", "true"));
+      err.hidden = false;
+      document.querySelector(`[name="${missing[0]}"]`).focus();
+      return;
+    }
+    const lines = [
+      "Merhaba, Vandivansi Media'dan teklif almak istiyorum.",
+      "",
+      "Ad soyad: " + f.name,
+      "İşletme: " + f.biz + " (" + f.type + ")",
+      f.area ? "Yer: " + f.area : "",
+      f.ig ? "Instagram: " + f.ig : "",
+      f.phone ? "Telefon: " + f.phone : "",
+      f.pkg ? "İlgilendiğim paket: " + f.pkg : "",
+      f.msg ? "Not: " + f.msg : ""
+    ].filter((l, i) => l !== "" || i === 1);
+    const body = lines.join("\n");
+    const subject = "Teklif talebi: " + f.biz;
+    txt.textContent = body;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true; submitBtn.textContent = "Gönderiliyor";
+    const payload = {
+      _subject: subject, _template: "table", _captcha: "false",
+      "Ad soyad": f.name, "İşletme": f.biz, "İşletme türü": f.type, "Yer": f.area || "-",
+      "Instagram": f.ig || "-", "Telefon": f.phone || "-", "Paket": f.pkg || "-", "Not": f.msg || "-"
+    };
+    fetch("https://formsubmit.co/ajax/" + FORM_TO, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(r => r.json()).then(res => {
+      if (String(res.success) === "true") {
+        form.reset(); submitBtn.hidden = true;
+        ok.hidden = false; done.hidden = true;
+        ok.focus();
+      } else { throw new Error(res.message || "gönderilemedi"); }
+    }).catch(() => {
+      submitBtn.disabled = false; submitBtn.textContent = "Tekrar dene";
+      done.hidden = false;
+      window.location.href = "mailto:" + FORM_TO + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+  });
+  document.getElementById("qcopy").addEventListener("click", e => {
+    const b = e.currentTarget;
+    try {
+      navigator.clipboard.writeText(txt.textContent).then(() => { b.textContent = "Kopyalandı"; }).catch(() => { b.textContent = "Metni seçip kopyala"; });
+    } catch (_) { b.textContent = "Metni seçip kopyala"; }
+  });
+})();
+
+(function intro() {
+  const segs = [
+    "Selam, ben Vandivansi!",
+    "Kendi hesabımı 45 bin takipçiye büyüttüm. Şimdi sıra senin işletmende.",
+    "Vandivansi Media olarak Instagram, Facebook, TikTok ve YouTube hesaplarını senin için yönetiyoruz.",
+    "Önce hesabını analiz ediyor, sonra sana özel bir yol haritası çiziyoruz.",
+    "Lokantan mı var, QR menü mü yaptırmak istiyorsun? Doğru yerdesin!",
+    "Web sitesi mi lazım? Hemen fiyat al.",
+    "Vandivansi Media. Biz denedik, işe yarıyor."
+  ];
+  const stage = document.getElementById("stage"), audio = document.getElementById("vo");
+  const scenes = [...stage.querySelectorAll(".sc")], cap = document.getElementById("cap");
+  const prog = document.getElementById("prog"), mouth = document.getElementById("mouth"), eyes = document.getElementById("eyes");
+  const btn = document.getElementById("playbtn"), lbl = document.getElementById("playlbl"), cnt = document.getElementById("cnt");
+  let total = 26.6, bounds = [], demo = false, playing = false, t0 = 0, analyser = null, buf = null, cur = -1;
+
+  const qr = document.getElementById("qr");
+  let seed = 7, out = "";
+  const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const finder = (x, y) => `<rect x="${x}" y="${y}" width="7" height="7" fill="#0E1E3A"/><rect x="${x + 1}" y="${y + 1}" width="5" height="5" fill="#F7F5F0"/><rect x="${x + 2}" y="${y + 2}" width="3" height="3" fill="#0E1E3A"/>`;
+  for (let y = 0; y < 25; y++) for (let x = 0; x < 25; x++) {
+    const inF = (x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16);
+    if (!inF && rnd() > 0.52) out += `<rect x="${x}" y="${y}" width="1" height="1" fill="#0E1E3A"/>`;
+  }
+  qr.innerHTML = out + finder(0, 0) + finder(18, 0) + finder(0, 18);
+
+  function timeline() {
+    const w = segs.map(s => s.length), sum = w.reduce((a, b) => a + b, 0);
+    let acc = 0.3; const span = total - 0.6;
+    bounds = w.map(x => { const s = acc; acc += x / sum * span; return [s, acc]; });
+  }
+  timeline();
+  audio.addEventListener("loadedmetadata", () => { if (isFinite(audio.duration)) { total = audio.duration; timeline(); } });
+  audio.addEventListener("error", () => { demo = true; });
+
+  function show(i) {
+    if (i === cur) return; cur = i;
+    scenes.forEach((s, k) => s.classList.toggle("on", k === i));
+    stage.classList.toggle("wave", i === 0 || i === segs.length - 1);
+    cap.textContent = i >= 0 ? segs[i] : "Tanıtımı izlemek için oynat";
+  }
+  function blink() {
+    eyes.style.transform = "scaleY(0.1)";
+    setTimeout(() => { eyes.style.transform = ""; }, 130);
+    setTimeout(blink, 2600 + Math.random() * 2200);
+  }
+  setTimeout(blink, 1800);
+
+  function frame() {
+    if (!playing) return;
+    const t = demo ? (performance.now() - t0) / 1000 : audio.currentTime;
+    let i = bounds.findIndex(b => t < b[1]); if (i < 0) i = segs.length - 1;
+    show(i);
+    if (i === 1) { const p = Math.min(1, Math.max(0, (t - bounds[1][0]) / 1.6)); cnt.textContent = Math.round(p * 45100).toLocaleString("tr-TR"); }
+    prog.style.width = Math.min(100, t / total * 100) + "%";
+    let lvl = 0;
+    if (analyser) { analyser.getByteFrequencyData(buf); let s = 0; for (let k = 2; k < 40; k++) s += buf[k]; lvl = Math.min(1, s / 38 / 150); }
+    else if (t < total - 0.4) lvl = 0.35 + 0.35 * Math.sin(t * 22) * Math.sin(t * 7.3);
+    mouth.setAttribute("ry", (2 + Math.max(0, lvl) * 7).toFixed(1));
+    if (t >= total) { stop(true); return; }
+    requestAnimationFrame(frame);
+  }
+  function stop(done) {
+    playing = false; stage.classList.remove("playing"); mouth.setAttribute("ry", "2");
+    lbl.textContent = done ? "Tekrar izle" : "Devam et";
+  }
+  async function start() {
+    if (!demo) {
+      try {
+        if (!analyser) {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const src = ctx.createMediaElementSource(audio);
+          analyser = ctx.createAnalyser(); analyser.fftSize = 256; buf = new Uint8Array(analyser.frequencyBinCount);
+          src.connect(analyser); analyser.connect(ctx.destination);
+          if (ctx.state === "suspended") await ctx.resume();
+        }
+        if (audio.ended || audio.currentTime >= total - 0.1) audio.currentTime = 0;
+        await audio.play();
+      } catch (_) { demo = true; analyser = null; }
+    }
+    if (demo) t0 = performance.now();
+    playing = true; stage.classList.add("playing"); cur = -1; requestAnimationFrame(frame);
+  }
+  btn.addEventListener("click", start);
+  stage.addEventListener("click", e => { if (playing && !demo && !e.target.closest(".playbtn")) { audio.pause(); stop(false); } });
+  show(0); stage.classList.remove("wave"); cap.textContent = "Tanıtımı izlemek için oynat";
+})();
+document.getElementById("combos").innerHTML = combos.map(([n, inc, was, now]) =>
+  `<article class="combo"><h3>${n}</h3><p class="inc">${inc}</p><p class="was">${fmt(was)}</p><p class="now">${fmt(now)} <small style="font-size:13px;color:#C9CFDA;font-family:var(--body);font-weight:400;">/ay</small></p><span class="save">${fmt(was - now)} tasarruf</span></article>`).join("");
+
+(function karne() {
+  const Q = [
+    ["Profil fotoğrafın logon ya da tabelan mı?", "Profil fotoğrafına logonu ya da tabelanı koy, küçük ekranda bile okunsun."],
+    ["Bio'da adres, çalışma saati ve iletişim var mı?", "Bio'ya adres, çalışma saati ve tek dokunuşla ulaşılan bir link ekle."],
+    ["Haftada en az 3 gönderi paylaşıyor musun?", "Haftada en az 3 gönderi paylaş, algoritma düzenli hesapları öne çıkarır."],
+    ["Son 7 günde en az 1 reels paylaştın mı?", "Haftada en az 1 reels paylaş, seni tanımayan kişilere ulaşmanın en hızlı yolu bu."],
+    ["Her gün en az 1 story atıyor musun?", "Her gün 1–2 story at, takipçilerin seni her gün hatırlasın."],
+    ["Yorum ve mesajlara 24 saat içinde dönüyor musun?", "Yorum ve mesajlara 24 saat içinde dön, cevapsız mesaj kaçan müşteri demek."],
+    ["Öne çıkanlarda menü, konum ve yorumlar var mı?", "Öne çıkanlara Menü, Konum, Yorumlar ve Kampanyalar başlıklarını koy."],
+    ["Google İşletme profilin güncel mi?", "Google İşletme profilini güncelle, 'yakınımdaki' aramalarında çıkarsın."],
+    ["Paylaşımların aynı renk ve tasarım dilinde mi?", "Paylaşımlarında aynı renkleri ve yazı tipini kullan, profilin bir vitrin gibi görünsün."],
+    ["Ayda en az bir kez istatistiklerine bakıyor musun?", "Ayda bir istatistiklerine bak, hangi gönderinin işe yaradığını rakamla gör."]
+  ];
+  const list = document.getElementById("kq"), pts = document.getElementById("kpts"), fill = document.getElementById("kfill");
+  const grade = document.getElementById("kgrade"), tips = document.getElementById("ktips"), cta = document.getElementById("kcta");
+  const ans = new Array(Q.length).fill(null);
+  list.innerHTML = Q.map((q, i) => `<li><span>${q[0]}</span><span class="yn" role="group" aria-label="${q[0]}"><button type="button" class="y" data-i="${i}" data-v="1" aria-pressed="false">Evet</button><button type="button" class="n" data-i="${i}" data-v="0" aria-pressed="false">Hayır</button></span></li>`).join("");
+  list.addEventListener("click", e => {
+    const b = e.target.closest("button[data-i]"); if (!b) return;
+    const i = +b.dataset.i; ans[i] = b.dataset.v === "1";
+    b.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    update();
+  });
+  function update() {
+    const answered = ans.filter(a => a !== null).length;
+    const score = ans.filter(a => a === true).length * 10;
+    pts.textContent = score; fill.style.width = score + "%";
+    if (answered < Q.length) { grade.textContent = `${answered}/${Q.length} soru cevaplandı`; }
+    else if (score >= 80) grade.textContent = "Çok iyi. Şimdi sıra büyümede: reklam ve reels ile yeni kitleye ulaşalım.";
+    else if (score >= 60) grade.textContent = "İyi, ama kaçırdığın müşteriler var. Birkaç düzeltmeyle hızla yükselir.";
+    else if (score >= 40) grade.textContent = "Geliştirilmeli. Hesabın müşterine işletmeni olduğundan zayıf gösteriyor.";
+    else grade.textContent = "Acil bakım lazım. İyi haber: en hızlı sonuç buradan alınır.";
+    const no = Q.filter((q, i) => ans[i] === false).map(q => q[1]).slice(0, 3);
+    tips.innerHTML = no.map(t => `<li>${t}</li>`).join("");
+    cta.hidden = answered < Q.length;
+  }
+  cta.addEventListener("click", () => {
+    const pkg = document.getElementById("q-pkg");
+    if (pkg) pkg.value = "Ücretsiz mini hesap analizi (Karne puanım: " + pts.textContent + "/100)";
+  });
+})();
+
+(function ideas() {
+  // [format, başlık, kanca (ilk 3 saniye), ne çekilir, açıklama yazısı, neden işe yarar, en iyi saat]
+  const D = {
+    kafe: { name: "Kafe", items: [
+      ["Reels · 15 sn", "Baristayı şaşırt", "Baristaya 'beni şaşırt' dedim. Bakın ne yaptı.", "Ekipten biri müşteri gibi gelir, menüde olmayan bir şey ister. Barista anında yeni bir içecek yaratır, son sahnede bardağı kameraya uzatır.", "Baristamıza 'beni şaşırt' dedik, bu çıktı. Menüye eklensin mi? Yorumlarda 100 'evet' görürsek ekliyoruz.", "Yorumu bir göreve çeviriyor. Yorum sayısı arttıkça Instagram videoyu daha çok kişiye gösteriyor.", "Cuma 19.00"],
+      ["Reels + etkinlik", "Telefonunu bize bırak", "Telefonunu 1 saat bize bırak, kahven bizden.", "Müşteriler telefonlarını kasadaki kutuya bırakıyor, sohbet ediyor, kitap okuyor. 1 saat sonra kahveleri ücretsiz. Tepkiler çekiliyor.", "Cumartesi 14.00–17.00: telefonunu kasaya bırak, 1 saat dayan, kahven bizden. Kim cesur?", "Meydan okuma paylaşılır ve kaydedilir. Üstelik videoyu izleyenleri o gün kafeye getirir.", "Perşembe 20.00 duyuru"],
+      ["Story serisi", "Gizli menü", "Bu içecek menüde yok. Sadece şifreyi bilene.", "Her gün story'de yeni bir 'gizli' içecek ve kasada söylenecek bir şifre.", "Kasada 'kuytu' de, gizli menüden Fındıklı Bal Latte'yi hazırlayalım. Şifre sadece bugün geçerli.", "Merak ve 'sadece takipçilere özel' hissi story izlenmesini her gün artırır ve doğrudan satışa döner.", "Her gün 11.00"]
+    ]},
+    restoran: { name: "Restoran", items: [
+      ["Reels · 20 sn", "Öğlen 12.00'de mutfak", "Siz 'acıktım' derken mutfağımızda 60 saniye.", "Öğle yoğunluğunun hızlandırılmış çekimi: tava sesi, fiş yazıcısı, tabakların peş peşe çıkışı.", "Siz 'acıktım' derken mutfakta bu oluyor. Paket servis 11.30'da başlıyor, sıraya ilk sen gir.", "Yoğunluk görmek güven verir: 'Bu kadar sipariş varsa lezzetlidir.' Öğle saatinden hemen önce paylaşılınca sipariş getirir.", "Hafta içi 11.15"],
+      ["Reels · 30 sn", "Ustanın itirafı", "Ustaya sordum: Lokantalar en çok hangi yemekte hile yapar?", "Usta kameraya sektörden bir bilgi verir, örneğin hazır sos ya da donuk et, ve kendi mutfaklarında neden yapmadıklarını gösterir.", "Ustamız 25 yıllık tecrübesiyle anlattı. Bizim mutfağımızda hazır sos yok, merak eden gelip baksın.", "Sektör sırrı merak uyandırır, kaydedilir ve paylaşılır. Aynı anda 'biz dürüstüz' mesajını verir.", "Pazar 20.00"],
+      ["Gönderi + story", "Komisyonu sana verelim", "Uygulamaya ödediğimiz komisyonu sana geri veriyoruz.", "WhatsApp'tan doğrudan sipariş verene ücretsiz tatlı. Görselde sipariş numarası ve tatlı.", "Bizden direkt sipariş ver, uygulama komisyonunu sana tatlı olarak verelim. WhatsApp'tan yazana sütlaç bizden.", "Müşteriyi yemek uygulamasından kendi kanalına taşır. İşletme her siparişte komisyondan kurtulur.", "Salı 18.00"]
+    ]},
+    kuafor: { name: "Kuaför", items: [
+      ["Reels · 15 sn", "Fotoğrafla geldi", "Pinterest'ten bir fotoğraf getirdi: 'Bunu yapabilir misiniz?'", "Müşterinin getirdiği örnek fotoğraf ekranın köşesinde dururken işlem hızlandırılmış oynar. Son sahnede ikisi yan yana (müşteri izniyle).", "Hayalindeki saçın fotoğrafını getir, aynısını yapalım. Randevu linki profilde.", "İzleyen kendi isteğini görür. 'Ben de bunu istiyorum' diye DM atar, video doğrudan randevuya döner.", "Cuma 19.30"],
+      ["Reels · skeç", "Kuaförüne asla söyleme", "Kuaförünüze asla söylememeniz gereken 3 cümle.", "Ekipten kısa, komik bir skeç: 'Sadece uçlarından alın', 'Geçen sefer başka yerde yaptırdım', 'Aynısı ama farklı olsun'.", "Hangisini söyledin? İtiraf et. Bunu hep söyleyen arkadaşını etiketle.", "Mizah ve etiketleme reklamsız yayılmanın en hızlı yolu. Her etiket yeni bir potansiyel müşteri.", "Çarşamba 20.00"],
+      ["Story", "Son dakika boşluğu", "15.00'teki randevu iptal oldu. İlk yazana %20 indirim.", "Boşalan saat geri sayım çıkartmasıyla paylaşılır.", "15.00 boşaldı. İlk yazana %20 indirim. Kaçırma.", "Boş koltuk kayıp para demek. Story ile dakikalar içinde dolar, takipçiler de story'leri kaçırmamaya başlar.", "Anlık"]
+    ]},
+    butik: { name: "Butik", items: [
+      ["Reels · 20 sn", "Aynı elbise, 3 yaş", "Aynı elbise, 3 farklı yaş. Hangisine daha çok yakıştı?", "20, 35 ve 50 yaşında üç kadın aynı elbiseyi kendi tarzında giyer.", "Tek elbise, üç stil. Yorumlara 1, 2 ya da 3 yaz. Beden ve stok için DM.", "Her izleyen kendini birinde görür. Yorumla oylama, Instagram'ın en sevdiği etkileşimdir.", "Salı 20.00"],
+      ["Reels · 15 sn", "1.000 ₺'ye tepeden tırnağa", "1.000 ₺'ye tepeden tırnağa giydirdik.", "Ceket, pantolon ve çanta tek tek eklenir, köşede toplam fiyat sayar.", "Ceket, pantolon, çanta: toplam 1.000 ₺'nin altında. Hangisini alırdın?", "Somut bütçe ve açık fiyat, satışa en yakın içeriktir. 'Bu bütçeye bunu bulabilirim' hissi verir.", "Perşembe 19.00"],
+      ["Story", "Son 3 adet", "Bu ceketten 3 tane kaldı. Biri senin bedenin mi?", "Ürün askıda, üstünde S, M ve L etiketleri.", "Stokta son 3 adet: S, M, L. DM'den 'ayırt' yaz, 24 saat senin.", "Kıtlık hissi ve tek kelimelik kolay aksiyon, DM'den doğrudan satış getirir.", "Cumartesi 11.00"]
+    ]},
+    emlak: { name: "Emlak", items: [
+      ["Reels · 30 sn", "Kirası ne kadar? Tahmin et", "Esenyurt'ta bu 2+1'in kirası ne kadar? Tahmin et, sonda söylüyorum.", "Dairenin hızlı turu, fiyat son saniyede açıklanır.", "Tahminini yorumlara yaz. En yakın tahmin edene bir sonraki ilanı herkesten önce gösteriyoruz.", "Tahmin oyunu videoyu sonuna kadar izletir. İzlenme süresi uzadıkça video daha çok kişiye gider.", "Pazar 21.00"],
+      ["Reels · 45 sn", "Kimsenin bakmadığı 5 şey", "Ev bakarken kimsenin kontrol etmediği 5 şey.", "Rutubet izi, su basıncı, sigorta kutusu, pencere contası ve cephe. Her biri 5 saniyede gösterilir.", "Kaydet, ev bakarken lazım olacak. Bizimle gezersen hepsini birlikte kontrol ediyoruz.", "Kaydetme oranı çok yüksek olur. Seni 'işini bilen danışman' yapar, ilan değil güven satarsın.", "Salı 20.00"],
+      ["Story", "İlana düşmeden önce", "Bu daire yarın ilana çıkıyor. Takipçilerimiz 24 saat önce görüyor.", "Dairenin 3 kısa videosu ve 'yarın ilanda' etiketi.", "İlan sitelerine düşmeden görmek için bizi takip et. Bu daireyi görmek isteyen DM atsın.", "Takip etmek için somut bir sebep verir. Her yeni takipçi, sana ait bir müşteri listesi demek.", "Cuma 18.00"]
+    ]},
+    klinik: { name: "Klinik", items: [
+      ["Reels · 30 sn", "Fark etmeden yaptığın hata", "Dişlerini fırçalarken yaptığın bu hata diş etine zarar veriyor olabilir.", "Doktor kısa ve net bir bilgi verir. Önce/sonra görseli ve fiyat yok.", "Hangisini yapıyordun? Kaydet ve ailenle paylaş.", "'Ben de mi yapıyorum?' merakı videoyu izletir, aileyle paylaşım erişimi katlar.", "Çarşamba 20.00"],
+      ["Reels serisi", "Soramadığın sorular", "Utandığınız için doktora soramadığınız soruları cevaplıyoruz.", "Story'deki anonim soru kutusundan gelen sorular, her hafta doktor tarafından cevaplanır.", "Sorunu story'deki kutuya isimsiz yaz, haftaya doktorumuz cevaplasın.", "Güven ve topluluk hissi yaratır. Soru kutusu her hafta kendiliğinden yeni içerik üretir.", "Pazar 19.00"],
+      ["Gönderi", "Görmediğin kısım", "Her hastadan önce 20 dakika: görmediğiniz süreç.", "Sterilizasyon, cihaz kontrolü ve sabah ekip toplantısı.", "Görmediğin kısım: her hastadan önce bu süreç. Randevu linki profilde.", "Sağlıkta karar sebebi güvendir. Görünmeyen emeği göstermek, fiyat konuşmadan güven satar.", "Salı 12.30"]
+    ]}
+  };
+  const tabs = document.getElementById("ideaTabs"), box = document.getElementById("ideas");
+  let cur = "kafe";
+  function draw() {
+    tabs.innerHTML = Object.entries(D).map(([k, v]) => `<button type="button" class="tab" data-k="${k}" aria-pressed="${k === cur}">${k === cur ? '<span class="dot"></span>' : ""}${v.name}</button>`).join("");
+    box.innerHTML = D[cur].items.map(([fmt, t, hook, what, cap, why, when]) => `<article class="idea"><p class="fmt">${fmt}</p><h3>${t}</h3><p class="hook"><span>İlk 3 saniye</span>“${hook}”</p><p class="what">${what}</p><p class="icap"><span>Açıklama yazısı</span>${cap}</p><p class="why"><b>Neden işe yarar?</b> ${why}</p><p class="when">En iyi saat: ${when}</p></article>`).join("");
+  }
+  tabs.addEventListener("click", e => { const b = e.target.closest(".tab"); if (!b) return; cur = b.dataset.k; draw(); });
+  draw();
+})();
+
+(function motion() {
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const h1 = document.querySelector(".hero h1");
+  if (h1 && !reduce) {
+    h1.innerHTML = h1.textContent.trim().split(/\s+/).map((w, i) => `<span class="w" style="animation-delay:${80 + i * 60}ms">${w}</span>`).join(" ");
+  }
+  const counters = [...document.querySelectorAll("[data-count]")];
+  const fmtN = n => n.toLocaleString("tr-TR");
+  function count(el) {
+    const end = +el.dataset.count;
+    if (reduce) { el.textContent = fmtN(end); return; }
+    const t0 = performance.now(), dur = 1200;
+    (function step(t) {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmtN(Math.round(end * e));
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target;
+    if (el.dataset.count) count(el); else el.classList.add("in");
+    io.unobserve(el);
+  }), { threshold: 0.15 });
+  counters.forEach(el => { el.textContent = "0"; io.observe(el); });
+  if (!reduce) {
+    const items = document.querySelectorAll("main .sec-head, .guide, .combo, .steps li, .faq, .qform, .about-card, .karne");
+    items.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight) return;
+      el.classList.add("rv"); io.observe(el);
+    });
+  }
+})();
+</script>
